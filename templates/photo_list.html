@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} Instapic {% endblock %}
+
+{% block content %}
+
+<div>
+
+    {% for photo in photos %}
+        <a href="/photos/{{ photo.photo_id }}">
+          <img src="{{ photo.photo_url }}"></a>
+      
+    {% endfor %}
+
+</div>
+
+{% endblock content%}
+
