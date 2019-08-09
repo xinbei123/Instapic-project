@@ -1,8 +1,15 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, redirect, session, flash
+
 import requests
+
+from flask_debugtoolbar import DebugToolbarExtension
+
+from jinja2 import StrictUndefined
 
 
 app = Flask(__name__)
+
+app.jinja_env.undefined = StrictUndefined
 
 
 CAT_PIC = {
@@ -35,7 +42,16 @@ def about():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    
+    app.debug = True
+
+    app.jinja_env.auto_reload = app.debug
+
+    connect_to_db(app)
+
+    DebugToolbarExtension(app)
+
+    app.run(port=5000, host='0.0.0.0')
 
 
 
