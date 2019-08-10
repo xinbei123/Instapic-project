@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, flash
 
-import requests
-
 from flask_debugtoolbar import DebugToolbarExtension
 
 from jinja2 import StrictUndefined
@@ -35,9 +33,10 @@ def photo_list():
     return render_template('photo_list.html', photos=photos)
 
 @app.route('/photos/<int:photo_id>', methods=['GET'])
-def pic_detail(photo_id):
+def photo_detail(photo_id):
 
     photo = Photo.query.get(photo_id)
+
     return render_template('photo_detail.html', photo=photo)
 
 @app.route('/photos/<int:photo_id>', methods=['POST'])
@@ -45,7 +44,15 @@ def make_comment(photo_id):
 
     comment = request.form.get('comment')
 
-    return render_template('photo_detail.html', comment=comment)
+    user_id = session.get('user_id')
+
+    new_comment = Comment(comment=comment, photo_id=photo_id, 
+                          user_id=user_id)
+
+    db.session.add(new_comment)
+    db.session.commit()
+
+    return redirect(f"/photos/{photo_id}")
 
 @app.route('/register', methods=['GET'])
 def register_form():
@@ -55,7 +62,16 @@ def register_form():
 @app.route('/register', methods=['POST'])
 def register_process():
 
-    return redirect('/')
+    username = request.form['username']
+    email = request.form['email']
+    password = request.form['password']
+
+    new_user = User(username=username, email=email, password=password)
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return redirect('/photos')
 
 @app.route('/login', methods=['GET'])
 def login_form():
@@ -65,7 +81,14 @@ def login_form():
 @app.route('/login', methods=['POST'])
 def login_process():
 
-    return redirect('/')
+    username = request.form['username']
+    password = request.form['password']
+
+    user = User.query.filter_by(username=username).first()
+
+    session['user_id'] = user.user_id
+
+    return redirect('/photos')
 
 @app.route('/logout')
 def logout():
@@ -76,6 +99,7 @@ def logout():
 if __name__ == "__main__":
 
     app.debug = True
+    app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
     app.jinja_env.auto_reload = app.debug
 
     connect_to_db(app)

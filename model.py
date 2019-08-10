@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -14,7 +15,8 @@ class User(db.Model):
     username = db.Column(db.String(30), nullable=False, unique=True)
     email = db.Column(db.String(64), nullable=True)
     password = db.Column(db.String(64), nullable=True)
-    date_created = db.Column(db.DateTime, nullable=False)
+    date_created = db.Column(db.DateTime, nullable=False, 
+                             default=datetime.utcnow)
 
     def __repr__(self):
 
@@ -27,7 +29,8 @@ class Photo(db.Model):
 
     photo_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     photo_user_id = db.Column(db.Integer, nullable=False)
-    date_uploaded = db.Column(db.DateTime, nullable=False)
+    date_uploaded = db.Column(db.DateTime, nullable=False, 
+                              default=datetime.utcnow)
     name = db.Column(db.String, nullable=True)
     photo_url = db.Column(db.String, nullable=False)
 
