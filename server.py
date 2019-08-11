@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, flash
+from flask import Flask, render_template, request, redirect, session, flash, url_for
 
 from flask_debugtoolbar import DebugToolbarExtension
 
@@ -6,9 +6,17 @@ from jinja2 import StrictUndefined
 
 from model import connect_to_db, db, User, Photo, Comment, Hashtag, Photohashtag
 
+from werkzeug.utils import secure_filename
+
+import os
+
+UPLOAD_FOLDER = '/Users/peipei/Downloads'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
 app.secret_key = "ABCdefGHL1234***$$$"
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 app.jinja_env.undefined = StrictUndefined
 
@@ -20,6 +28,8 @@ app.jinja_env.undefined = StrictUndefined
 #     'fido': 'https://cdn.pixabay.com/photo/2016/03/27/07/31/pet-1282309_960_720.jpg'
 # }
 
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/')
 def homepage():
@@ -142,6 +152,33 @@ def make_comment(photo_id):
 
     return redirect(f"/photos/{photo_id}")
 
+@app.route('/upload', methods=['GET'])
+def upload_form():
+    """Show upload form information"""
+
+    return render_template('upload.html')
+
+@app.route('/upload', methods=['POST'])
+def upload_photo():
+    """Allow user to upload photos"""
+
+    photo = request.files['photo']
+
+    if photo.name == '':
+        flash('No selected photos')
+        return redirect(request.url)
+
+    if photo and allowed_file(photo.filename):
+        filename = secure_filename(photo.filename)
+        photo.save(os.path.join(UPLOAD_FOLDER, filename))
+        flash('Photo successfully uploaded')
+        return redirect('/upload')
+
+    else:
+        flash('Only png, jpg, jpeg, gif file types are allowed!')
+        return redirect(request.url)
+
+#************************************************************************
 
 if __name__ == "__main__":
 
