@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %} TITLE {% endblock %}</title>
+    <title>{% block title %} Instapic {% endblock %}</title>
 </head>
 <body>
-    {% block content %} BODY {% endblock %}
+
+<h2>Instapic Comments</h2>
+
+{% if "user_id" in session %}
+  <a href="/logout">Logout</a>
+{% endif %}
+
+<hr>
+
+{% for flash in get_flashed_messages() %}
+  {{ flash }}
+{% endfor %}
+
+{% block content %}
+  Put your body here.
+{% endblock %}
 
 </body>
 </html>

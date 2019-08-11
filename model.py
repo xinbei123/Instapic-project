@@ -59,8 +59,8 @@ class Comment(db.Model):
                                backref=db.backref("comments",
                                                   order_by=comment_id))
     photos = db.relationship("Photo",
-                               backref=db.backref("photos",
-                                                  order_by=photo_id))
+                               backref=db.backref("comments",
+                                                  order_by=comment_id))
 
     def __repr__(self):
 
@@ -92,6 +92,13 @@ class Photohashtag(db.Model):
                          db.ForeignKey('photos.photo_id'), nullable=False)
     hashtag_id = db.Column(db.Integer, 
                            db.ForeignKey('hashtags.hashtag_id'), nullable=False)
+
+    hashtags = db.relationship("Hashtag",
+                               backref=db.backref("photohashtags",
+                                                  order_by=photohashtag_id))
+    photos = db.relationship("Photo",
+                               backref=db.backref("photohashtags",
+                                                  order_by=photohashtag_id))
 
     def __repr__(self):
 

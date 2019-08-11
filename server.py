@@ -4,7 +4,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 
 from jinja2 import StrictUndefined
 
-from model import connect_to_db, db, User, Photo, Comment, Hashtag
+from model import connect_to_db, db, User, Photo, Comment, Hashtag, Photohashtag
 
 
 app = Flask(__name__)
@@ -23,44 +23,49 @@ app.jinja_env.undefined = StrictUndefined
 
 @app.route('/')
 def homepage():
+    """Show information about homepage"""
 
     return render_template('homepage.html')
 
-@app.route('/photos')
+
+@app.route('/photos', methods=['GET'])
 def photo_list():
+    """Show a list of photos"""
 
     photos = Photo.query.all()
     return render_template('photo_list.html', photos=photos)
 
-@app.route('/photos/<int:photo_id>', methods=['GET'])
-def photo_detail(photo_id):
 
-    photo = Photo.query.get(photo_id)
+@app.route('/hashtag', methods=['GET'])
+def hashtag_search():
+    """Show hashtag search box"""
 
-    return render_template('photo_detail.html', photo=photo)
+    return render_template('photo_hashtag.html')
 
-@app.route('/photos/<int:photo_id>', methods=['POST'])
-def make_comment(photo_id):
 
-    comment = request.form.get('comment')
+@app.route('/hashtag', methods=['POST'])
+def search_hashtag():
+    """Show photo based on hashtag"""
 
-    user_id = session.get('user_id')
+    hashtag = request.form['hashtag']
 
-    new_comment = Comment(comment=comment, photo_id=photo_id, 
-                          user_id=user_id)
+    hashtag_id = Hashtag.query.filter_by(hashtag=hashtag).first().hashtag_id
 
-    db.session.add(new_comment)
-    db.session.commit()
+    photohashtags = Photohashtag.query.filter_by(hashtag_id=hashtag_id).all()
 
-    return redirect(f"/photos/{photo_id}")
+    return render_template('hashtag.html', photohashtags=photohashtags)
+
 
 @app.route('/register', methods=['GET'])
 def register_form():
+    """Show register form to user"""
 
     return render_template('register_form.html')
 
+
 @app.route('/register', methods=['POST'])
 def register_process():
+    """Process register form and stored in db"""
 
     username = request.form['username']
     email = request.form['email']
@@ -73,13 +78,17 @@ def register_process():
 
     return redirect('/photos')
 
+
 @app.route('/login', methods=['GET'])
 def login_form():
+    """Show login form"""
 
     return render_template('login.html')
 
+
 @app.route('/login', methods=['POST'])
 def login_process():
+    """Process login form and stored in session"""
 
     username = request.form['username']
     password = request.form['password']
@@ -87,13 +96,49 @@ def login_process():
     user = User.query.filter_by(username=username).first()
 
     session['user_id'] = user.user_id
+    flash('You are logged in!')
 
     return redirect('/photos')
 
+
 @app.route('/logout')
 def logout():
+    """delete session and let user logout"""
 
-    return redirect('/')
+    del session['user_id']
+    flash('You are logged out!')
+    return redirect('/photos')
+
+
+@app.route('/photos/<int:photo_id>', methods=['GET'])
+def photo_detail(photo_id):
+    """Show individual photo information"""
+
+    photo = Photo.query.get(photo_id)
+
+    return render_template('photo_detail.html', photo=photo)
+
+
+@app.route('/photos/<int:photo_id>', methods=['POST'])
+def make_comment(photo_id):
+    """Allow user to make comments and stored in db"""
+
+    comment = request.form.get('comment')
+
+    user_id = session.get('user_id')
+
+    if not user_id:
+        flash('Please login to make comments!')
+        return redirect('/login')
+
+    new_comment = Comment(comment=comment, photo_id=photo_id, 
+                          user_id=user_id)
+
+    flash('comments added!')
+    db.session.add(new_comment)
+    db.session.commit()
+
+    return redirect(f"/photos/{photo_id}")
 
 
 if __name__ == "__main__":
