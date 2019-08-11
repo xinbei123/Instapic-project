@@ -76,6 +76,8 @@ def register_process():
     db.session.add(new_user)
     db.session.commit()
 
+    flash('You are successfully registered!')
+    
     return redirect('/photos')
 
 
