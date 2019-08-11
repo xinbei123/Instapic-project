@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/hashtag" method="POST">
+    <div>
+        <label>Hashtag:
+            <input type="search" name="hashtag">
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="submit" value="search">
+        </label>
+    </div>
+</form>
+
+{% endblock content%}
+
+

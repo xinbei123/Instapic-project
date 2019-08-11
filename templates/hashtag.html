@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    {% for photohashtag in photohashtags %}
+    <img src="{{ photohashtag.photos.photo_url }}"></a>
+    {% endfor %}
+</div>
+
+{% endblock content%}
