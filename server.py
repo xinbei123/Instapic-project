@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, flash
+from flask import Flask, render_template, request, redirect, session, flash, url_for, send_from_directory
 
 from flask_debugtoolbar import DebugToolbarExtension
 
@@ -159,22 +159,22 @@ def upload_form():
     return render_template('upload.html')
 
 @app.route('/upload', methods=['POST'])
-def upload_photo():
+def upload_file():
     """Allow user to upload photos"""
 
-    photo = request.files['photo']
+    file = request.files['file']
 
     if not session:
         return redirect('/login')
 
     else:
-        if photo.name == '':
+        if file.name == '':
             flash('No selected photos')
             return redirect(request.url)
 
-        if photo and allowed_file(photo.filename):
-            filename = secure_filename(photo.filename)
-            photo.save(os.path.join(UPLOAD_FOLDER, filename))
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(UPLOAD_FOLDER, filename))
             flash('Photo successfully uploaded')
 
             photo_user_id = session.get('user_id')
@@ -185,11 +185,16 @@ def upload_photo():
             db.session.add(new_photo)
             db.session.commit()
 
-            return redirect('/photos')
+            return redirect(url_for('uploaded_file', filename=filename))
 
         else:
             flash('Only png, jpg, jpeg, gif file types are allowed!')
             return redirect(request.url)
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+
+    return send_from_directory(UPLOAD_FOLDER,filename)
 
 
 #************************************************************************
