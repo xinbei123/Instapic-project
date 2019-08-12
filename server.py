@@ -10,7 +10,7 @@ from werkzeug.utils import secure_filename
 
 import os
 
-UPLOAD_FOLDER = os.path.join('static', 'images')
+UPLOAD_FOLDER = os.path.join('/static', 'images')
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
@@ -127,6 +127,7 @@ def photo_detail(photo_id):
     """Show individual photo information"""
 
     photo = Photo.query.get(photo_id)
+    print(photo.photo_url)
 
     return render_template('photo_detail.html', photo=photo)
 
@@ -155,7 +156,7 @@ def make_comment(photo_id):
 @app.route('/upload', methods=['GET'])
 def upload_form():
     """Show upload form information"""
-    
+
     return render_template('upload.html')
 
 @app.route('/upload', methods=['POST'])
