@@ -10,7 +10,7 @@ from werkzeug.utils import secure_filename
 
 import os
 
-UPLOAD_FOLDER = '/Users/peipei/Downloads'
+UPLOAD_FOLDER = os.path.join('static', 'images')
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
@@ -155,7 +155,7 @@ def make_comment(photo_id):
 @app.route('/upload', methods=['GET'])
 def upload_form():
     """Show upload form information"""
-
+    
     return render_template('upload.html')
 
 @app.route('/upload', methods=['POST'])
@@ -174,13 +174,14 @@ def upload_file():
 
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(UPLOAD_FOLDER, filename))
+            file_path = os.path.join(UPLOAD_FOLDER, filename)
+            file.save(file_path)
             flash('Photo successfully uploaded')
 
             photo_user_id = session.get('user_id')
 
             new_photo = Photo(photo_user_id=photo_user_id, 
-                              photo_url=UPLOAD_FOLDER)
+                              photo_url=file_path)
 
             db.session.add(new_photo)
             db.session.commit()
