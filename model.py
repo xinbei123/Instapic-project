@@ -34,6 +34,7 @@ class Photo(db.Model):
     name = db.Column(db.String, nullable=True)
     photo_url = db.Column(db.String, nullable=False)
     caption = db.Column(db.String, nullable=True)
+    num_like = db.Column(db.Integer, nullable=True)
 
     hashtags = db.relationship("Hashtag", secondary="photohashtags",
                                 backref="photos")

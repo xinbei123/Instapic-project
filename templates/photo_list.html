@@ -6,6 +6,9 @@
     {% for photo in photos %}
         <a href="/photos/{{ photo.photo_id }}">
           <img src="{{ photo.photo_url }}"></a>
+          <br>
+          <input type="submit" name="like" value="Like">
+          <br><br>
     {% endfor %}
 </div>
 
