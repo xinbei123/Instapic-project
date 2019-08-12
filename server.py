@@ -33,6 +33,14 @@ def photo_list():
     """Show a list of photos"""
 
     photos = Photo.query.all()
+
+    return render_template('photo_list.html', photos=photos)
+
+@app.route('/photos', methods=['POST'])
+def photo_list():
+    """Show a list of photos"""
+
+    photos = Photo.query.all()
     # num_like = Photo.query.filter_by(photo_id=photo_id)
 
     return render_template('photo_list.html', photos=photos)
