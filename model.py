@@ -33,6 +33,7 @@ class Photo(db.Model):
                               default=datetime.utcnow)
     name = db.Column(db.String, nullable=True)
     photo_url = db.Column(db.String, nullable=False)
+    caption = db.Column(db.String, nullable=True)
 
     hashtags = db.relationship("Hashtag", secondary="photohashtags",
                                 backref="photos")
