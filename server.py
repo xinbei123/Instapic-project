@@ -185,7 +185,7 @@ def upload_photo():
             db.session.add(new_photo)
             db.session.commit()
 
-            return redirect('/upload')
+            return redirect('/photos')
 
         else:
             flash('Only png, jpg, jpeg, gif file types are allowed!')
