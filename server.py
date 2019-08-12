@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, flash, url_for
+from flask import Flask, render_template, request, redirect, session, flash
 
 from flask_debugtoolbar import DebugToolbarExtension
 
@@ -164,19 +164,33 @@ def upload_photo():
 
     photo = request.files['photo']
 
-    if photo.name == '':
-        flash('No selected photos')
-        return redirect(request.url)
-
-    if photo and allowed_file(photo.filename):
-        filename = secure_filename(photo.filename)
-        photo.save(os.path.join(UPLOAD_FOLDER, filename))
-        flash('Photo successfully uploaded')
-        return redirect('/upload')
+    if not session:
+        return redirect('/login')
 
     else:
-        flash('Only png, jpg, jpeg, gif file types are allowed!')
-        return redirect(request.url)
+        if photo.name == '':
+            flash('No selected photos')
+            return redirect(request.url)
+
+        if photo and allowed_file(photo.filename):
+            filename = secure_filename(photo.filename)
+            photo.save(os.path.join(UPLOAD_FOLDER, filename))
+            flash('Photo successfully uploaded')
+
+            photo_user_id = session.get('user_id')
+
+            new_photo = Photo(photo_user_id=photo_user_id, 
+                              photo_url=UPLOAD_FOLDER)
+
+            db.session.add(new_photo)
+            db.session.commit()
+
+            return redirect('/upload')
+
+        else:
+            flash('Only png, jpg, jpeg, gif file types are allowed!')
+            return redirect(request.url)
+
 
 #************************************************************************
 
