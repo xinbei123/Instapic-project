@@ -32,18 +32,21 @@ def homepage():
 def photo_list():
     """Show a list of photos"""
 
-    photos = Photo.query.all()
+    photos = Photo.query.order_by(Photo.photo_id).all()
 
     return render_template('photo_list.html', photos=photos)
 
-@app.route('/photos', methods=['POST'])
-def photo_list():
-    """Show a list of photos"""
+@app.route('/photos/<int:photo_id>', methods=['POST'])
+def photo_like(photo_id):
+    """Show likes of a photo"""
 
-    photos = Photo.query.all()
-    # num_like = Photo.query.filter_by(photo_id=photo_id)
+    photo = Photo.query.filter_by(photo_id=photo_id).one()
 
-    return render_template('photo_list.html', photos=photos)
+    photo.num_like = photo.num_like + 1 if photo.num_like else 1    
+
+    db.session.commit()
+
+    return redirect(f"/photos/{photo_id}")
 
 
 @app.route('/hashtag', methods=['GET'])

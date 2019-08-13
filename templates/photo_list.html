@@ -7,10 +7,11 @@
         <a href="/photos/{{ photo.photo_id }}">
           <img src="{{ photo.photo_url }}"></a>
           <br>
-          <form action="/photos" method="POST">
-              <input type="submit" name="like" value="Like">
-          </form>
-          <br>
+
+        <form action="/photos/{{ photo.photo_id }}" method="POST">
+          <input type="submit" name="like" value="like">
+        </form>
+        <br>
     {% endfor %}
 </div>
 

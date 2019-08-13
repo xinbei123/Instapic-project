@@ -34,7 +34,7 @@ class Photo(db.Model):
     name = db.Column(db.String, nullable=True)
     photo_url = db.Column(db.String, nullable=False)
     caption = db.Column(db.String, nullable=True)
-    num_like = db.Column(db.Integer, nullable=True)
+    num_like = db.Column(db.Integer, nullable=True, default=0)
 
     hashtags = db.relationship("Hashtag", secondary="photohashtags",
                                 backref="photos")
@@ -42,9 +42,12 @@ class Photo(db.Model):
     
     def __repr__(self):
 
-            return f"""<Photo photo_id={self.photo_id} 
-                       photo_user_id={self.photo_user_id}
-                       photo_url={self.photo_url}>"""
+        return f"""
+        <Photo 
+         photo_id={self.photo_id} 
+         photo_user_id={self.photo_user_id}
+         photo_url={self.photo_url}
+         num_like={self.num_like}>"""
 
 
 class Comment(db.Model):
@@ -66,10 +69,12 @@ class Comment(db.Model):
 
     def __repr__(self):
 
-            return f"""<Comment comment_id={self.comment_id} 
-                       photo_id={self.photo_id}
-                       user_id={self.user_id} 
-                       >"""
+        return f"""
+        <Comment 
+         comment_id={self.comment_id} 
+         photo_id={self.photo_id}
+         user_id={self.user_id} 
+         >"""
 
 class Hashtag(db.Model):
     """Show Hashtag info about photo"""
