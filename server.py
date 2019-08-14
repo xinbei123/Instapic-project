@@ -39,7 +39,7 @@ def photo_list():
 @app.route('/photos', methods=['POST'])
 def photo_like():
     """Show likes of a photo"""
-    
+
     photos = Photo.query.all()
 
     for photo in photos:
@@ -64,11 +64,21 @@ def search_hashtag():
 
     hashtag = request.form['hashtag']
 
-    hashtag_id = Hashtag.query.filter_by(hashtag=hashtag).first().hashtag_id
+    db_hashtag = Hashtag.query.filter_by(hashtag=hashtag).first()
 
-    photohashtags = Photohashtag.query.filter_by(hashtag_id=hashtag_id).all()
+    if not db_hashtag:
 
-    return render_template('hashtag.html', photohashtags=photohashtags)
+        flash('There is no matching photos!')
+
+        return redirect('/hashtag')
+
+    else:
+
+        hashtag_id = Hashtag.query.filter_by(hashtag=hashtag).first().hashtag_id
+
+        photohashtags = Photohashtag.query.filter_by(hashtag_id=hashtag_id).all()
+
+        return render_template('hashtag.html', photohashtags=photohashtags)
 
 
 @app.route('/register', methods=['GET'])
