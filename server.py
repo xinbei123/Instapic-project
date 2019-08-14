@@ -167,6 +167,7 @@ def upload_file():
 
     file = request.files['file']
     caption = request.form['caption']
+    hashtag = request.form['hashtag']
 
     if not session:
         return redirect('/login')
@@ -186,6 +187,13 @@ def upload_file():
 
             new_photo = Photo(photo_user_id=photo_user_id, 
                               photo_url=('/' + file_path), caption=caption)
+
+            db_hashtag = Hashtag.query.filter_by(hashtag=hashtag).first()
+
+            if not db_hashtag:
+                db_hashtag = Hashtag(hashtag=hashtag)
+
+            new_photo.hashtags.append(db_hashtag)
 
             db.session.add(new_photo)
             db.session.commit()
