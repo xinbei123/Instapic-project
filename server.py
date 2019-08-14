@@ -36,17 +36,19 @@ def photo_list():
 
     return render_template('photo_list.html', photos=photos)
 
-@app.route('/photos/<int:photo_id>', methods=['POST'])
-def photo_like(photo_id):
+@app.route('/photos', methods=['POST'])
+def photo_like():
     """Show likes of a photo"""
+    
+    photos = Photo.query.all()
 
-    photo = Photo.query.filter_by(photo_id=photo_id).one()
+    for photo in photos:
 
-    photo.num_like = photo.num_like + 1 if photo.num_like else 1    
+        photo.num_like = photo.num_like + 1 if photo.num_like else 1    
 
     db.session.commit()
 
-    return redirect(f"/photos/{photo_id}")
+    return render_template('photo_list.html', photos=photos)
 
 
 @app.route('/hashtag', methods=['GET'])
@@ -142,7 +144,7 @@ def make_comment(photo_id):
 
     user_id = session.get('user_id')
 
-    if not user_id:
+    if not session:
         flash('Please login to make comments!')
         return redirect('/login')
 
