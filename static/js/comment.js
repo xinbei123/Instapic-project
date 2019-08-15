@@ -2,9 +2,11 @@
 
 function displayComment(results) {
 
-    const formInput = $('comment').val();
+    // const formInput = $('comment').val();
 
-    $('ul').prepend(formInput);
+    const formInput = document.getElementById('comment-text').value;
+
+    $('ul').prepend("<li>" + formInput + "</li>");
 }
 
 function showComment(evt) {

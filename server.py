@@ -143,6 +143,8 @@ def photo_detail(photo_id):
 
     photo = Photo.query.get(photo_id)
 
+    photo.comments.order_by(comment_id)
+
     return render_template('photo_detail.html', photo=photo)
 
 
