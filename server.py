@@ -148,7 +148,7 @@ def photo_detail(photo_id):
 
     comment_lst = comment.order_by(desc('comment_id')).all()
 
-    return render_template('photo_detail.html', photo=photo, 
+    return render_template('photo_detail.html', photo=photo,
                             comment_lst=comment_lst)
 
 
