@@ -41,7 +41,7 @@ def photo_list():
     return render_template('photo_list.html', photos=photos)
 
 
-@app.route('/photos', methods=['POST'])
+@app.route('/photos/like', methods=['POST'])
 def photo_like():
     """Show likes of a photo"""
 
@@ -49,6 +49,20 @@ def photo_like():
 
     for photo in photos:
         photo.num_like = photo.num_like + 1 if photo.num_like else 1    
+
+    db.session.commit()
+
+    return render_template('photo_list.html', photos=photos)
+
+
+@app.route('/photos/dislike', methods=['POST'])
+def photo_dislike():
+    """Show dislikes of a photo"""
+
+    photos = Photo.query.all()
+
+    for photo in photos:
+        photo.num_like = photo.num_like - 1 if photo.num_like else 1    
 
     db.session.commit()
 

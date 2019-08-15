@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form action="/hashtag" method="POST">
+<!-- <form action="/hashtag" method="POST">
     <div>
         <label>Hashtag:
             <input type="search" name="hashtag">
@@ -12,7 +12,15 @@
             <input type="submit" value="search">
         </label>
     </div>
-</form>
+</form> -->
+<div id="hashtag-search">
+    Hashtag: <input type="text" class="typeahead" 
+              autocomplete="off" spellcheck="false" placeholder="#travel">
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/static/js/hashtag.js"></script>
 
 {% endblock content%}
 

@@ -8,11 +8,13 @@
           <img src="{{ photo.photo_url }}"></a>
           <br>
 
-        <form action="/photos" method="POST">
-          <button>
-              <i class="fas fa-thumbs-up"></i>
-          </button>
-          <button>
+        <form action="/photos/like" method="POST">
+            <button>
+                <i class="fas fa-thumbs-up"></i>
+            </button>      
+        </form>
+        <form action="/photos/dislike" method="POST">
+            <button>
               <i class="fas fa-thumbs-down"></i>
           </button>
         </form>
