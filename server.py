@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, flash, url_for, send_from_directory
+from flask import Flask, render_template, request, redirect, session, flash, url_for, send_from_directory, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from jinja2 import StrictUndefined
 from model import connect_to_db, db, User, Photo, Comment, Hashtag, Photohashtag
@@ -19,7 +19,10 @@ app.jinja_env.undefined = StrictUndefined
 # Functions Definitions
 
 def allowed_file(filename):
+    """parse the upload file"""
+
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 @app.route('/')
 def homepage():
@@ -36,6 +39,7 @@ def photo_list():
 
     return render_template('photo_list.html', photos=photos)
 
+
 @app.route('/photos', methods=['POST'])
 def photo_like():
     """Show likes of a photo"""
@@ -43,7 +47,6 @@ def photo_like():
     photos = Photo.query.all()
 
     for photo in photos:
-
         photo.num_like = photo.num_like + 1 if photo.num_like else 1    
 
     db.session.commit()
@@ -63,19 +66,16 @@ def search_hashtag():
     """Show photo based on hashtag"""
 
     hashtag = request.form['hashtag']
-
     db_hashtag = Hashtag.query.filter_by(hashtag=hashtag).first()
 
     if not db_hashtag:
 
         flash('There is no matching photos!')
-
         return redirect('/hashtag')
 
     else:
 
         hashtag_id = Hashtag.query.filter_by(hashtag=hashtag).first().hashtag_id
-
         photohashtags = Photohashtag.query.filter_by(hashtag_id=hashtag_id).all()
 
         return render_template('hashtag.html', photohashtags=photohashtags)
@@ -146,32 +146,46 @@ def photo_detail(photo_id):
     return render_template('photo_detail.html', photo=photo)
 
 
-@app.route('/photos/<int:photo_id>', methods=['POST'])
+# todo: make GET route for /photos/<int:photo_id>/comments
+
+@app.route('/photos/<int:photo_id>/comments', methods=['POST'])
 def make_comment(photo_id):
     """Allow user to make comments and stored in db"""
 
     comment = request.form.get('comment')
-
     user_id = session.get('user_id')
 
     if not session:
         flash('Please login to make comments!')
         return redirect('/login')
 
-    new_comment = Comment(comment=comment, photo_id=photo_id, 
-                          user_id=user_id)
+    else:
 
-    flash('comments added!')
-    db.session.add(new_comment)
-    db.session.commit()
+        db_photo = Photo.query.options(db.joinedload('comments')).get(photo_id)
 
-    return redirect(f"/photos/{photo_id}")
+        new_comment = Comment(comment=comment, user_id=user_id)
+
+        db_photo.comments.append(new_comment)
+
+        flash('comments added!')
+        db.session.add(new_comment)
+        db.session.commit()
+
+        result = []
+
+        for comment in db_photo.comments:
+
+            result.append(comment.to_dict())
+
+        # return redirect(f"/photos/{photo_id}")
+        return jsonify(result)
 
 @app.route('/upload', methods=['GET'])
 def upload_form():
     """Show upload form information"""
 
     return render_template('upload.html')
+
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -215,6 +229,7 @@ def upload_file():
         else:
             flash('Only png, jpg, jpeg, gif file types are allowed!')
             return redirect(request.url)
+
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):

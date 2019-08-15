@@ -72,9 +72,21 @@ class Comment(db.Model):
         return f"""
         <Comment 
          comment_id={self.comment_id} 
+         comment={self.comment}
          photo_id={self.photo_id}
          user_id={self.user_id} 
          >"""
+
+    def to_dict(self):
+        """Return a dictionary version of the comment."""
+
+        result = {}
+
+        result['comment_id'] = self.comment_id
+        result['comment'] = self.comment
+        result['user_id'] = self.user_id
+
+        return result
 
 class Hashtag(db.Model):
     """Show Hashtag info about photo"""
