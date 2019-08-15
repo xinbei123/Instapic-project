@@ -7,7 +7,7 @@
 
 <div>
     <form id="comment-form" action="/photos/{{ photo.photo_id }}/comments" method="POST">
-        Comment: <input id="comment-text" type="text" name="comment">
+        Comment: <input type="text" name="comment">
         <input type="hidden" name="photoId" value="{{ photo.photo_id }}">
         <input type="submit" name="submit"> <br>
     </form>
@@ -23,7 +23,9 @@
 
 
 {% if "user_id" in session %}
+
     <script src="/static/js/comment.js"></script>
+
 {% endif %}
 
 {% endblock content%}

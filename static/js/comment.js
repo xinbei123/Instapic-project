@@ -1,11 +1,5 @@
 "user strict";
 
-function displayComment(results) {
-
-    let formInput = $('#comment-text').val();
-
-    $('ul').prepend("<li>" + formInput + "</li>");
-}
 
 function showComment(evt) {
 
@@ -16,7 +10,18 @@ function showComment(evt) {
         photoId: $('#comment-form input[name="photoId"]').val()
     }
 
-    $.post(`/photos/${formValues.photoId}/comments`, formValues, displayComment);
+    if (formValues.comment) {
+
+        $.post(
+            `/photos/${formValues.photoId}/comments`,
+            formValues,
+            (comments) => {
+                
+                const latestComment = comments[comments.length - 1];
+            
+                $('ul').prepend(`<li>${latestComment.comment}</li>`);
+            });
+    }
 
 }
 
