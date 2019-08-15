@@ -3,6 +3,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from jinja2 import StrictUndefined
 from model import connect_to_db, db, User, Photo, Comment, Hashtag, Photohashtag
 from werkzeug.utils import secure_filename
+from sqlalchemy import desc
 import os
 
 UPLOAD_FOLDER = os.path.join('static', 'images')
@@ -143,9 +144,12 @@ def photo_detail(photo_id):
 
     photo = Photo.query.get(photo_id)
 
-    photo.comments.order_by(comment_id)
+    comment = Comment.query.filter_by(photo_id=photo_id)
 
-    return render_template('photo_detail.html', photo=photo)
+    comment_lst = comment.order_by(desc('comment_id')).all()
+
+    return render_template('photo_detail.html', photo=photo, 
+                            comment_lst=comment_lst)
 
 
 # todo: make GET route for /photos/<int:photo_id>/comments
