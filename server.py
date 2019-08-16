@@ -76,7 +76,7 @@ def hashtag_search():
     return render_template('photo_hashtag.html')
 
 
-@app.route('/hashtag/tag', methods=['POST'])
+@app.route('/hashtag', methods=['POST'])
 def search_hashtag():
     """Show photo based on hashtag"""
 
@@ -94,13 +94,18 @@ def search_hashtag():
         photohashtags = Photohashtag.query.filter_by(hashtag_id=hashtag_id).all()
 
         # get all hashtag from db and turn into a json file
-        # hashtags = Hashtag.query.all()
-
-        # list_hashtag = [hashtag.to_dict() for hashtag in hashtags]
-
-        # return jsonify(list_hashtag)
+        
 
     return render_template('hashtag.html', photohashtags=photohashtags)
+
+@app.route('/hashtag.json')
+def hashtag_info():
+
+    hashtags = Hashtag.query.all()
+
+    list_hashtag = [hashtag.to_dict() for hashtag in hashtags]
+
+    return jsonify(list_hashtag)
 
 
 @app.route('/register', methods=['GET'])

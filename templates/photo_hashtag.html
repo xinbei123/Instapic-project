@@ -10,16 +10,19 @@
     
 </form> -->
 <div>
-    <form id="hashtag-form" action="/hashtag/tag" method="POST">
+    <form id="hashtag-form" action="/hashtag" method="POST">
         Hashtag: <input type="text" name="hashtag" class="typeahead" autocomplete="off" spellcheck="false" placeholder="#travel">
         <input type="submit" value="search">
     </form>
 </div>
     
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+{% endblock content%}
+
+{% block javascript %}
 
 <script src="/static/js/hashtag.js"></script>
 
-{% endblock content%}
+{% endblock %}
 
 
