@@ -99,13 +99,13 @@ class Hashtag(db.Model):
     def __repr__(self):
 
             return f"""<Hashtag hashtag_id={self.hashtag_id} 
-                       hashtag={self.hashtag}>"""
+                                hashtag={self.hashtag}>"""
 
     def to_dict(self):
         """Return a dictionary version of the hashtags."""
 
-        return result {"hashtag_id": self.hashtag_id,
-                       "hashtag": self.hashtag}
+        return {"hashtag_id": self.hashtag_id,
+                "hashtag": self.hashtag}
 
 class Photohashtag(db.Model):
     """Association table between photo and hashtag"""

@@ -9,6 +9,7 @@ $(document).ready(function(){
         datumTokenizer: Bloodhound.tokenizers.whitespace,
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         local: hashtags
+        // prefetch: 'http://localhost:5000/hashtag/tag'
     });
     
     // Initializing the typeahead
@@ -23,15 +24,15 @@ $(document).ready(function(){
     });
 });
 
-function showHashtag(evt) {
 
-    evt.preventDefault();
 
-    const formValues = {
-        hashtag: $('#hashtag-form input[name="hashtag"]').val()
-    }
 
-    if (formValues.hashtag) {
-        
-    }
-}
+
+
+
+
+
+
+
+
+

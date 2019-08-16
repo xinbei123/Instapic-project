@@ -93,7 +93,14 @@ def search_hashtag():
         hashtag_id = Hashtag.query.filter_by(hashtag=hashtag).first().hashtag_id
         photohashtags = Photohashtag.query.filter_by(hashtag_id=hashtag_id).all()
 
-        return render_template('hashtag.html', photohashtags=photohashtags)
+        # get all hashtag from db and turn into a json file
+        # hashtags = Hashtag.query.all()
+
+        # list_hashtag = [hashtag.to_dict() for hashtag in hashtags]
+
+        # return jsonify(list_hashtag)
+
+    return render_template('hashtag.html', photohashtags=photohashtags)
 
 
 @app.route('/register', methods=['GET'])
