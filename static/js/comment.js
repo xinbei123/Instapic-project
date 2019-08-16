@@ -13,8 +13,7 @@ function showComment(evt) {
     if (formValues.comment) {
 
         $.post(
-            `/photos/${formValues.photoId}/comments`,
-            formValues,
+            `/photos/${formValues.photoId}/comments`,formValues,
             (comments) => {
                 
                 const latestComment = comments[comments.length - 1];

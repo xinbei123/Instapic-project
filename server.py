@@ -76,7 +76,7 @@ def hashtag_search():
     return render_template('photo_hashtag.html')
 
 
-@app.route('/hashtag', methods=['POST'])
+@app.route('/hashtag/tag', methods=['POST'])
 def search_hashtag():
     """Show photo based on hashtag"""
 

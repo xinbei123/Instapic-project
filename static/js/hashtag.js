@@ -22,3 +22,16 @@ $(document).ready(function(){
         source: hashtags
     });
 });
+
+function showHashtag(evt) {
+
+    evt.preventDefault();
+
+    const formValues = {
+        hashtag: $('#hashtag-form input[name="hashtag"]').val()
+    }
+
+    if (formValues.hashtag) {
+        
+    }
+}
