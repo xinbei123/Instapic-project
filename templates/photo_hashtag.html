@@ -1,14 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- <form action="/hashtag" method="POST">
-    <div>
-        <label>Hashtag:
-            <input type="search" name="hashtag">
-        </label>
-    </div>
-    
-</form> -->
 <div>
     <form id="hashtag-form" action="/hashtag" method="POST">
         Hashtag: <input type="text" name="hashtag" class="typeahead" autocomplete="off" spellcheck="false" placeholder="#travel">

@@ -21,11 +21,14 @@
     {% endfor %}
 </ul>
 
+{% endblock content%}
 
+{% block javascript %}
 {% if "user_id" in session %}
 
     <script src="/static/js/comment.js"></script>
 
 {% endif %}
+{% endblock %}
 
-{% endblock content%}
+

@@ -4,10 +4,6 @@ $(document).ready(function(){
 
     $.get('/hashtag.json', function (results) {
 
-        // var hashtags = ['cat', 'kitten'];
-
-        console.log(results)
-
         hashtag_array = []
 
         for (let result of results){
@@ -20,7 +16,6 @@ $(document).ready(function(){
             datumTokenizer: Bloodhound.tokenizers.whitespace,
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             local: hashtag_array
-            // prefetch: 'http://localhost:5000/hashtag/tag'
         });
         
         // Initializing the typeahead
