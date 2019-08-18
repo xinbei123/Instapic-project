@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Uploaded</h3>
+
+<div>
+  {% for photo in photos %}
+    <img src="{{ photo.photo_url }}">
+  {% endfor %}
+
+</div>
+
+<h3>Saved</h3>
+
+{% endblock %}

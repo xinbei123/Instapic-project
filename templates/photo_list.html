@@ -13,13 +13,11 @@
                 <i class="fa fa-thumbs-up"></i>
             </button>      
         </form>
-
         <form action="/photos/dislike" method="POST">
             <button name="dislikeBtn" value="{{ photo.photo_id }}">
               <i class="fa fa-thumbs-down"></i>
           </button>
         </form>
-
         <br>
     {% endfor %}
 </div>

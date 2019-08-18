@@ -47,8 +47,6 @@ def photo_like():
 
     photo_id = request.form['likeBtn']
 
-    print(f"debuggggggggg {photo_id}")
-
     photo_obj = Photo.query.filter_by(photo_id=photo_id).one()
 
     photo_obj.num_like = photo_obj.num_like + 1 if photo_obj.num_like else 1   
@@ -159,7 +157,6 @@ def login_process():
 
     return redirect('/photos')
 
-
 @app.route('/logout')
 def logout():
     """delete session and let user logout"""
@@ -167,6 +164,22 @@ def logout():
     del session['user_id']
     flash('You are logged out!')
     return redirect('/photos')
+    
+
+#todo2:
+# add one more icon to each photo, the save button
+# in the html page, create another seciton for saved (done)
+# redirect user to login before save
+# after save, redirect user to userprofile page (in todo1)
+
+@app.route('/users/<int:user_id>')
+def user_profile(user_id):
+
+    user_id = session['user_id']
+
+    photos = Photo.query.filter_by(photo_user_id=user_id).all()
+
+    return render_template('user_profile.html', photos=photos)
 
 
 @app.route('/photos/<int:photo_id>', methods=['GET'])
