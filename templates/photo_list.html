@@ -8,10 +8,11 @@
           <br>
 
         <form id="like-form" action="/photos" method="POST">
-            <button>
+            <button name="like-btn" value="{{ photo.photo_id }}">
                 <i class="far fa-heart"></i>
             </button>       
         </form>
+
         <br>
     {% endfor %}
 </div>

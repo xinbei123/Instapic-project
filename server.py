@@ -43,33 +43,31 @@ def photo_list():
 
 @app.route('/photos', methods=['POST'])
 def photo_likes():
-    """Show number of likes for each photo"""
+    """Show likes of a photo"""
+
+    # print('debug', request.form['like-btn'])
+
+    photo_id = request.form['like-btn']
+
+    photo_obj = Photo.query.filter_by(photo_id=photo_id).one()
+
+    photo_obj.num_like = photo_obj.num_like + 1 if photo_obj.num_like else 1    
+
+    db.session.commit()
 
     photos = Photo.query.all()
+    
+    return render_template('photo_list.html', photos=photos)
 
-    for photo in photos:
+@app.route('/photos.json')
+def photo_json():
+    """photos with photo_id and num_like as a json body"""
 
-        photo.num_like = photo.num_like + 1 if photo.num_like else 1
-
-    db.session.commit()   
+    photos = Photo.query.all()
 
     photo_list = [photo.to_dict() for photo in photos]
 
     return jsonify(photo_list)
-
-
-# @app.route('/photos/dislike', methods=['POST'])
-# def photo_dislike():
-#     """Show dislikes of a photo"""
-
-#     photos = Photo.query.all()
-
-#     for photo in photos:
-#         photo.num_like = photo.num_like - 1 if photo.num_like else 1    
-
-#     db.session.commit()
-
-#     return render_template('photo_list.html', photos=photos)
 
 
 @app.route('/hashtag', methods=['GET'])

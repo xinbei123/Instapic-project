@@ -1,26 +1,26 @@
 "user-strict";
 
 
-$(document).ready(function(){
+// $(document).ready(function(){
 
-    $('#like-form').on('submit', function(evt) {
+//     $('#like-form').on('submit', function(evt) {
 
-        evt.preventDefault();
+//         evt.preventDefault();
 
-        $.post('/photos', {'submit': true}, function(results) {
+//         $.post('/photos', {'submit': true}, function(results) {
 
-            for (let result of results) {
+//             for (let result of results) {
 
-                $('.far').click(function() {
-                    $(this).toggleClass('fas');
+//                 $('.far').click(function() {
+//                     $(this).toggleClass('fas');
 
-                });
+//                 });
 
 
-                $('i').html(`${result['num_like']}`)
+//                 $('i').html(`${result['num_like']}`)
 
-            }
+//             }
 
-        });
-    })
-});
+//         });
+//     })
+// });
