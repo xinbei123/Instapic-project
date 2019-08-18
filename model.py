@@ -49,12 +49,6 @@ class Photo(db.Model):
          photo_url={self.photo_url}
          num_like={self.num_like}>"""
 
-    def to_dict(self):
-        """Return a dictionary version of the photos."""
-
-        return {"photo_id": self.photo_id,
-                "num_like": self.num_like}
-
 
 class Comment(db.Model):
     """Show comment about photo by user"""
