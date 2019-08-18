@@ -10,6 +10,7 @@ function showComment(evt) {
         photoId: $('#comment-form input[name="photoId"]').val()
     }
 
+
     if (formValues.comment) {
 
         $.post(

@@ -1,21 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div>
-    {% for photo in photos %}
-        <a href="/photos/{{ photo.photo_id }}">
-          <img src="{{ photo.photo_url }}"></a>
-          <br>
+{% for photo in photos %}
 
-        <form id="like-form" action="/photos" method="POST">
-            <button name="like-btn" value="{{ photo.photo_id }}">
-                <i class="far fa-heart"></i>
+    <div>
+        <a href="/photos/{{ photo.photo_id }}">
+        <img src="{{ photo.photo_url }}"></a>
+        <br>
+    </div>
+        
+    <div>
+        <form id="like-form" action="/photos/{{ photo.photo_id }}/likes" method="POST">
+            <button name="likeBtn" value="{{ photo.photo_id }}">
+                <i class="far fa-heart" value="{{ photo.photo_id }}"></i>
             </button>       
         </form>
+    </div>
 
-        <br>
-    {% endfor %}
-</div>
+{% endfor %}
 
 {% endblock content%}
 

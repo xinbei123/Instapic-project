@@ -1,26 +1,31 @@
 "user-strict";
 
 
-// $(document).ready(function(){
+$(document).ready(function(){
 
-//     $('#like-form').on('submit', function(evt) {
+    $('#like-form').on('submit', function(evt) {
 
-//         evt.preventDefault();
+        evt.preventDefault();
 
-//         $.post('/photos', {'submit': true}, function(results) {
+        photoId = $('#like-form button[name="likeBtn"]').val()
+        console.log(photoId)
 
-//             for (let result of results) {
+        $.post(`/photos/${photoId}/likes`, {photoId}, function(results) {
+            // alert('yes')
 
-//                 $('.far').click(function() {
-//                     $(this).toggleClass('fas');
+            // for (let result of results) {
 
-//                 });
+                // $('.far').click(function() {
+                //     $(this).toggleClass('fas');
+
+                // });
+
+                $('i').html(results[0]['num_like'])    
+            // };
+        })
+    });
+
+})
 
 
-//                 $('i').html(`${result['num_like']}`)
 
-//             }
-
-//         });
-//     })
-// });
