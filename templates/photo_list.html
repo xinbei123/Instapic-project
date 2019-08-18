@@ -1,27 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 
-</div>
 <div>
     {% for photo in photos %}
         <a href="/photos/{{ photo.photo_id }}">
           <img src="{{ photo.photo_url }}"></a>
           <br>
 
-        <form action="/photos/like" method="POST">
+        <form id="like-form" action="/photos" method="POST">
             <button>
-                <i class="fas fa-thumbs-up"></i>
-            </button>      
+                <i class="far fa-heart"></i>
+            </button>       
         </form>
-        <form action="/photos/dislike" method="POST">
-            <button>
-              <i class="fas fa-thumbs-down"></i>
-          </button>
-        </form>
-
         <br>
     {% endfor %}
 </div>
 
 {% endblock content%}
+
+{% block javascript %}
+
+<script src="/static/js/heart.js"></script>
+
+{% endblock %}
 

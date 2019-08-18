@@ -41,32 +41,35 @@ def photo_list():
     return render_template('photo_list.html', photos=photos)
 
 
-@app.route('/photos/like', methods=['POST'])
-def photo_like():
-    """Show likes of a photo"""
+@app.route('/photos', methods=['POST'])
+def photo_likes():
+    """Show number of likes for each photo"""
 
     photos = Photo.query.all()
 
     for photo in photos:
-        photo.num_like = photo.num_like + 1 if photo.num_like else 1    
 
-    db.session.commit()
+        photo.num_like = photo.num_like + 1 if photo.num_like else 1
 
-    return render_template('photo_list.html', photos=photos)
+    db.session.commit()   
+
+    photo_list = [photo.to_dict() for photo in photos]
+
+    return jsonify(photo_list)
 
 
-@app.route('/photos/dislike', methods=['POST'])
-def photo_dislike():
-    """Show dislikes of a photo"""
+# @app.route('/photos/dislike', methods=['POST'])
+# def photo_dislike():
+#     """Show dislikes of a photo"""
 
-    photos = Photo.query.all()
+#     photos = Photo.query.all()
 
-    for photo in photos:
-        photo.num_like = photo.num_like - 1 if photo.num_like else 1    
+#     for photo in photos:
+#         photo.num_like = photo.num_like - 1 if photo.num_like else 1    
 
-    db.session.commit()
+#     db.session.commit()
 
-    return render_template('photo_list.html', photos=photos)
+#     return render_template('photo_list.html', photos=photos)
 
 
 @app.route('/hashtag', methods=['GET'])
@@ -92,8 +95,6 @@ def search_hashtag():
 
         hashtag_id = Hashtag.query.filter_by(hashtag=hashtag).first().hashtag_id
         photohashtags = Photohashtag.query.filter_by(hashtag_id=hashtag_id).all()
-
-        # get all hashtag from db and turn into a json file
         
 
     return render_template('hashtag.html', photohashtags=photohashtags)
