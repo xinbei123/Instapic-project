@@ -1,30 +1,36 @@
 {% extends "base.html" %}
+
+<div class="container">
 {% block content %}
 
-<div>
-    {% for photo in photos %}
-        <a href="/photos/{{ photo.photo_id }}">
-          <img src="{{ photo.photo_url }}"></a>
-          <br>
+    <div>
+        {% for photo in photos %}
+            <a href="/photos/{{ photo.photo_id }}">
+              <img src="{{ photo.photo_url }}"></a>
+              <br>
 
-        <form action="/photos/like" method="POST">
-            <button name="likeBtn" value="{{ photo.photo_id }}">
-                <i class="fa fa-thumbs-up"></i>
-            </button>      
-        </form>
-        <form action="/photos/dislike" method="POST">
-            <button name="dislikeBtn" value="{{ photo.photo_id }}">
-              <i class="fa fa-thumbs-down"></i>
-          </button>
-        </form>
-        <form action="/photos/saved" method="POST">
-            <button name="savedBtn" value="{{ photo.photo_id}}">
-                <i class="fa fa-save"></i>
-            </button>
-        </form>
-        <br>
-    {% endfor %}
-</div>
+            <form action="/photos/like" method="POST">
+                <button name="likeBtn" value="{{ photo.photo_id }}">
+                    <i class="fa fa-thumbs-up"></i>
+                </button>      
+            </form>
+            <form action="/photos/dislike" method="POST">
+                <button name="dislikeBtn" value="{{ photo.photo_id }}">
+                  <i class="fa fa-thumbs-down"></i>
+              </button>
+            </form>
+            <form action="/photos/saved" method="POST">
+                <button name="savedBtn" value="{{ photo.photo_id}}">
+                    <i class="fa fa-save"></i>
+                </button>
+            </form>
+            <br>
+        {% endfor %}
+    </div>
 
 {% endblock content%}
+
+</div>
+
+
 

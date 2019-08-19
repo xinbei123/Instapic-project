@@ -34,34 +34,34 @@
 </head>
 <body>
     <div class="container">
-        <nav class="nav">
-            <div class="nav nav-left">
-                <ul class="nav justify-content-front">
-                  <li class="nav-item">
-                    <a class="nav-link nav-icon" href="/">Instapic</a>
-                  </li>
-                  <a class="nav-link nav-title" href="/">
-                        <button>
-                            <i class="fab fa-instagram"></i>
-                        </button>
-                    </a>
-                  <a class="nav-link nav-search" href="/hashtag">Hashtag</a>
-                </ul>
-            </div>
-            <div class="nav nav-right">
-                <ul class="nav justify-content-end">
-                  <li class="nav-item">
-                    <a class="nav-link nav-login" href="/login">Login</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link nav-register" href="/register">Register</a>
-                  </li>
-                </ul>  
-            </div>
+
+        <nav class="navbar">
+            <a class="navbar-brand" href="/">
+                Instapic 
+            </a>
+              <ul class="navbar-nav bd-navbar-nav flex-row">
+                <li class="nav-item">
+                      <a class="nav-link nav-title" href="/"><i class="fab fa-instagram"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-search" href="/hashtag">Hashtag</a>
+                </li>   
+            </ul>
+
+            <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+                <li class="nav-item">
+                      <a class="nav-link" href="/login">Login</a>
+                </li>
+
+                <li class="nav-item">
+                      <a class="nav-link nav-register" href="/register">Register</a>
+                </li>
+            </ul>
         </nav>
+        <hr>
+
     </div>
     
-
     <div class="container">    
         {% if "user_id" in session %}
         <a href="/logout">Logout</a>
