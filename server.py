@@ -25,16 +25,16 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+# @app.route('/')
+# def homepage():
+#     """Show information about homepage"""
+
+#     return render_template('homepage.html')
+
 @app.route('/')
-def homepage():
-    """Show information about homepage"""
-
-    return render_template('homepage.html')
-
-
 @app.route('/photos', methods=['GET'])
-def photo_list():
-    """Show a list of photos"""
+def homepage():
+    """Show a list of photos as homepage"""
 
     photos = Photo.query.order_by(Photo.photo_id).all()
 
