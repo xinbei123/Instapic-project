@@ -164,22 +164,39 @@ def logout():
     del session['user_id']
     flash('You are logged out!')
     return redirect('/photos')
-    
 
-#todo2:
-# add one more icon to each photo, the save button
-# in the html page, create another seciton for saved (done)
-# redirect user to login before save
-# after save, redirect user to userprofile page (in todo1)
 
 @app.route('/users/<int:user_id>')
-def user_profile(user_id):
+def user_upload(user_id):
+    """Show user uploaded photos"""
+
+    if not session:
+        flash('Please login first!')
+        return redirect('/login')
 
     user_id = session['user_id']
 
     photos = Photo.query.filter_by(photo_user_id=user_id).all()
 
-    return render_template('user_profile.html', photos=photos)
+    return render_template('user_upload.html', photos=photos)
+
+
+@app.route('/photos/saved', methods=['POST'])
+def user_saved():
+    """let user saved photos"""
+
+    photo_id = request.form['savedBtn']
+
+    photo = Photo.query.filter_by(photo_id=photo_id).one()
+
+    if not session:
+        flash('Please login to save photos!')
+        return redirect('/login')
+
+    return render_template('user_saved.html', photo=photo)
+
+# to-do:
+# need to create a user profile page which contains upload and saved info
 
 
 @app.route('/photos/<int:photo_id>', methods=['GET'])

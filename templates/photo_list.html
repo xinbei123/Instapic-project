@@ -18,6 +18,11 @@
               <i class="fa fa-thumbs-down"></i>
           </button>
         </form>
+        <form action="/photos/saved" method="POST">
+            <button name="savedBtn" value="{{ photo.photo_id}}">
+                <i class="fa fa-save"></i>
+            </button>
+        </form>
         <br>
     {% endfor %}
 </div>
