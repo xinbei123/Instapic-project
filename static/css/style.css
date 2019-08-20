@@ -1,16 +1,20 @@
-.far {
-  font-size: 25px;
+.far .fas {
+  font-size: 20px;
   color: black;
   
 }
 
-.fas {
-    font-size: 25px;
-    color: black;
+#likeBtn, #dislikeBtn, #savedBtn {
+    cursor: pointer;
+}
+
+.nav-item {
+    padding: 5px;
+    font-size: 1.2em;
 }
 
 
-#likeBtn, #dislikeBtn, #savedBtn {
-    cursor: pointer;
+.navbar-brand {
+    font-size: 2em;
 }
 
