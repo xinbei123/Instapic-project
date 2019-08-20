@@ -1,11 +1,6 @@
 "user-strict";
 
-// $('.far').click(function() {
-//     $(this).toggleClass('fas');
-
-// });
-
-
+//Ajax post request for like button
 $(document).ready(function() {
 
     $('.upvote').on('click', function(evt) {
@@ -14,16 +9,27 @@ $(document).ready(function() {
 
         $.post(`/photos/${photoId}/like.json`, function(results) {
 
-            console.log(results)
-
             $(evt.target).html(results.num_like)
         
+        });
+
+    }); 
+});
+
+//Ajax post request for unlik button
+$(document).ready(function() {
+
+    $('.downvote').on('click', function(evt) {
+
+        const photodd = $(evt.target).data('photo-dd')
+
+        $.post(`/photos/${photodd}/dislike.json`, function(results) {
+
+            $(evt.target).html(results.num_like)
         })
 
-    }) 
+    })
 })
-
-
 
 
 

@@ -6,20 +6,20 @@
     <div>
         {% for photo in photos %}
             <a href="/photos/{{ photo.photo_id }}">
-              <img src="{{ photo.photo_url }}"></a>
-              <br>
-
+                <img src="{{ photo.photo_url }}"></a>
+                <br>
             
-            <button name="likeBtn" value="{{ photo.photo_id }}">
-                <i class="fas fa-heart upvote" data-photo-id="{{ photo.photo_id }}">{{ photo.num_like }} </i>
+            <button id="likeBtn" value="{{ photo.photo_id }}">
+                <i class="fas fa-heart upvote" data-photo-id="{{ photo.photo_id }}">
+                {{ photo.num_like }}</i>
             </button>      
         
 
-            <button name="dislikeBtn" value="{{ photo.photo_id }}">
-              <i class="far fa-heart"> {{ photo.num_like }} </i>
+            <button id="dislikeBtn" value="{{ photo.photo_id }}">
+                <i class="far fa-heart downvote" data-photo-dd="{{ photo.photo_id }}">
+                {{ photo.num_like }}</i>
             </button>
             
-
             <form action="/photos/saved" method="POST">
                 <button name="savedBtn" value="{{ photo.photo_id}}">
                     <i class="fa fa-save"></i>

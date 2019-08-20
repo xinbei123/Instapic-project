@@ -43,7 +43,7 @@ def homepage():
 
 @app.route('/photos/<int:photo_id>/like.json', methods=['POST'])
 def photo_like(photo_id):
-    """Show likes of a photo"""
+    """Show num of likes for a photo"""
 
     photo_obj = Photo.query.filter_by(photo_id=photo_id).one()
 
@@ -54,11 +54,9 @@ def photo_like(photo_id):
     return jsonify(photo_obj.to_dict())
    
 
-@app.route('/photos/dislike', methods=['POST'])
-def photo_dislike():
-    """Show dislikes of a photo"""
-
-    photo_id = request.form['dislikeBtn']
+@app.route('/photos/<int:photo_id>/dislike.json', methods=['POST'])
+def photo_dislike(photo_id):
+    """Show num of dislikes for a photo"""
 
     photo_obj = Photo.query.filter_by(photo_id=photo_id).one()
 
@@ -66,9 +64,7 @@ def photo_dislike():
 
     db.session.commit()
 
-    photos = Photo.query.order_by(Photo.photo_id).all()
-
-    return render_template('photo_list.html', photos=photos)
+    return jsonify(photo_obj.to_dict())
 
 
 @app.route('/hashtag', methods=['GET'])
