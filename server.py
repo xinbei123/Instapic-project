@@ -52,10 +52,6 @@ def photo_like(photo_id):
     db.session.commit()
 
     return jsonify(photo_obj.to_dict())
-
-
-    # return render_template('photo_list.html', photos=photos)
-
    
 
 @app.route('/photos/dislike', methods=['POST'])
