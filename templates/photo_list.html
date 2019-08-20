@@ -3,30 +3,28 @@
 <div class="container">
 {% block content %}
 
-    <div>
-        {% for photo in photos %}
-            <a href="/photos/{{ photo.photo_id }}">
-                <img src="{{ photo.photo_url }}"></a>
-                <br>
-            
-            <span id="likeBtn" value="{{ photo.photo_id }}">
-                <i class="fas fa-heart upvote" data-photo-id="{{ photo.photo_id }}">
-                {{ photo.num_like }}</i>
-            </span>      
-        
-
-            <span id="dislikeBtn" value="{{ photo.photo_id }}">
-                <i class="far fa-heart downvote" data-photo-id="{{ photo.photo_id }}">
-                {{ photo.num_like }}</i>
-            </span>
-            
-            <span id="savedBtn" value="{{ photo.photo_id}}">
-                    <i class="fa fa-save" data-photo-id="{{ photo.photo_id }}"></i>
-            </span>
-           
+    {% for photo in photos %}
+        <a href="/photos/{{ photo.photo_id }}">
+            <img src="{{ photo.photo_url }}"></a>
             <br>
-        {% endfor %}
-    </div>
+        
+        <span id="likeBtn" value="{{ photo.photo_id }}">
+            <i class="fas fa-heart upvote" data-photo-id="{{ photo.photo_id }}">
+            {{ photo.num_like }}</i>
+        </span>      
+    
+
+        <span id="dislikeBtn" value="{{ photo.photo_id }}">
+            <i class="far fa-heart downvote" data-photo-id="{{ photo.photo_id }}">
+            {{ photo.num_like }}</i>
+        </span>
+        
+        <span id="savedBtn" value="{{ photo.photo_id}}">
+            <i class="fa fa-save" data-photo-id="{{ photo.photo_id }}"></i>
+        </span>
+       
+        <br>
+    {% endfor %}
 
 {% endblock content%}
 

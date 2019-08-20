@@ -125,7 +125,7 @@ def register_process():
 
     flash('You are successfully registered!')
     
-    return redirect('/photos')
+    return redirect('/login')
 
 
 @app.route('/login', methods=['GET'])
@@ -145,6 +145,11 @@ def login_process():
     user = User.query.filter_by(username=username).first()
 
     session['user_id'] = user.user_id
+
+    if password != user.password:
+        flash('Invalid password, please try again!')
+        return redirect('login')
+
     flash('You are logged in!')
 
     return redirect('/photos')
