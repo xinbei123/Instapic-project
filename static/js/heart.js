@@ -21,9 +21,9 @@ $(document).ready(function() {
 
     $('.downvote').on('click', function(evt) {
 
-        const photodd = $(evt.target).data('photo-dd')
+        const photoid = $(evt.target).data('photo-id')
 
-        $.post(`/photos/${photodd}/dislike.json`, function(results) {
+        $.post(`/photos/${photoid}/dislike.json`, function(results) {
 
             $(evt.target).html(results.num_like)
         })

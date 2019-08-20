@@ -1,11 +1,16 @@
 .far {
   font-size: 25px;
-  color: red;
+  color: black;
   
 }
 
 .fas {
     font-size: 25px;
-    color: red;
+    color: black;
+}
+
+
+#likeBtn, #dislikeBtn {
+    cursor: pointer;
 }
 
