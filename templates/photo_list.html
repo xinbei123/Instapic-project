@@ -20,11 +20,10 @@
                 {{ photo.num_like }}</i>
             </span>
             
-            <form action="/photos/saved" method="POST">
-                <button name="savedBtn" value="{{ photo.photo_id}}">
+            <span id="savedBtn" value="{{ photo.photo_id}}">
                     <i class="fa fa-save"></i>
-                </button>
-            </form>
+            </span>
+           
             <br>
         {% endfor %}
     </div>

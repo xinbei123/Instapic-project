@@ -10,7 +10,7 @@
 }
 
 
-#likeBtn, #dislikeBtn {
+#likeBtn, #dislikeBtn, #savedBtn {
     cursor: pointer;
 }
 
