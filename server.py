@@ -142,7 +142,7 @@ def login_process():
     username = request.form['username']
     password = request.form['password']
 
-    user = User.query.filter_by(username=username).first()
+    user = User.query.filter_by(username=username).one()
 
     session['user_id'] = user.user_id
 
@@ -152,7 +152,9 @@ def login_process():
 
     flash(f"Welcome to Instapic, {user.username}")
 
-    return redirect('/photos')
+    users = User.query.filter_by(username=username).one()
+
+    return redirect(f"/users/{users.user_id}")
 
 @app.route('/logout')
 def logout():
@@ -162,7 +164,13 @@ def logout():
     flash('You are logged out!')
     return redirect('/photos')
 
+@app.route('/users/<int:user_id>', methods=['GET'])
+def user_profile(user_id):
+    """User profile page that contains user information"""
 
+    photos = Photo.query.filter_by(photo_user_id=user_id).all()
+
+    return render_template('user_profile.html', photos=photos)
 
 
 @app.route('/photos/<int:photo_id>', methods=['GET'])

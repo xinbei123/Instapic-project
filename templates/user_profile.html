@@ -1,18 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h3>Uploaded</h3>
+<h3>My Photos</h3>
 
-<div>
-  {% for photo in photos %}
+{% for photo in photos %}
     <img src="{{ photo.photo_url }}">
-  {% endfor %}
+{% endfor %}
 
-</div>
-
-<h3>Saved</h3>
-<div>
-  <img src="{{ photo_obj.photo_url }}">
-</div>
+<h3>Saved Photos</h3>
 
 {% endblock %}
