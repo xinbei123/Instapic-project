@@ -150,7 +150,7 @@ def login_process():
         flash('Invalid password, please try again!')
         return redirect('login')
 
-    flash('You are logged in!')
+    flash(f"Welcome to Instapic, {user.username}")
 
     return redirect('/photos')
 
@@ -161,6 +161,8 @@ def logout():
     del session['user_id']
     flash('You are logged out!')
     return redirect('/photos')
+
+
 
 
 @app.route('/photos/<int:photo_id>', methods=['GET'])
