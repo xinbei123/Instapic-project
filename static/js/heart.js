@@ -16,7 +16,7 @@ $(document).ready(function() {
     }); 
 });
 
-//Ajax post request for unlik button
+//Ajax post request for unlike button
 $(document).ready(function() {
 
     $('.downvote').on('click', function(evt) {
