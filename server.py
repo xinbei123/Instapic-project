@@ -63,10 +63,6 @@ def photo_dislike(photo_id):
 @app.route('/photos/<int:photo_id>/save.json', methods=['POST'])
 def save_photo(photo_id):
 
-    # if not "user_id" in session:
-
-    #     return redirect('/login')
-
     user_id = session['user_id']
 
     db_userphoto = Photo.query.options(db.joinedload('userphotos')).get(photo_id)
