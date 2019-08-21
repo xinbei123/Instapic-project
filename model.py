@@ -70,6 +70,7 @@ class Userphoto(db.Model):
 
     user_id = db.Column(db.Integer, 
                          db.ForeignKey('users.user_id'), nullable=False)
+
     photo_id = db.Column(db.Integer, 
                          db.ForeignKey('photos.photo_id'), nullable=False) 
 
@@ -151,6 +152,7 @@ class Photohashtag(db.Model):
     __tablename__ = "photohashtags"
 
     photohashtag_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    
     photo_id = db.Column(db.Integer, 
                          db.ForeignKey('photos.photo_id'), nullable=False)
     hashtag_id = db.Column(db.Integer, 

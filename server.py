@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, flash, url_for, send_from_directory, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from jinja2 import StrictUndefined
-from model import connect_to_db, db, User, Photo, Comment, Hashtag, Photohashtag
+from model import connect_to_db, db, User, Photo, Comment, Hashtag, Photohashtag, Userphoto
 from werkzeug.utils import secure_filename
 from sqlalchemy import desc
 import os
@@ -63,21 +63,17 @@ def photo_dislike(photo_id):
 @app.route('/photos/<int:photo_id>/save.json', methods=['POST'])
 def save_photo(photo_id):
 
-    if not session:
-        flash('Please login to save photos!')
+    user_id = session['user_id']
 
-    photo_obj = Photo.query.filter_by(photo_id=photo_id).one()
+    new_userphoto = Userphoto(user_id=user_id, photo_id=photo_id)
 
-    # need to rework for this portion after creating middle tables in model.py
-    # user_id = session['user_id']
+    print(f"debuggggggggggggggg {new_userphoto}")
 
-    # user = User.query.filter_by(user_id=user_id).one()
+    db.session.add(new_userphoto)
 
-    # photo_obj.photo_id = user.fav_photo_id 
+    db.session.commit()
 
-    # db.session.commit()
-
-    return jsonify(photo_obj.to_dict())
+    return redirect('/')
 
 
 @app.route('/hashtag', methods=['GET'])
