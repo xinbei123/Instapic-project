@@ -20,7 +20,7 @@
         </span>
         
         <span id="savedBtn" value="{{ photo.photo_id}}">
-            <i class="fa fa-save" data-photo-id="{{ photo.photo_id }}"></i>
+            <i class="fa fa-save saveFav" data-photo-id="{{ photo.photo_id }}"></i>
         </span>
        
         <br>
@@ -33,6 +33,8 @@
 {% block javascript %}
 
 <script src="/static/js/heart.js"></script>
+
+<script src="/static/js/photo_save.js"></script>
 
 {% endblock %}
 

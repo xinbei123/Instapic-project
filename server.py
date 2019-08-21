@@ -25,12 +25,6 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-# @app.route('/')
-# def homepage():
-#     """Show information about homepage"""
-
-#     return render_template('homepage.html')
-
 @app.route('/')
 @app.route('/photos', methods=['GET'])
 def homepage():
@@ -63,6 +57,25 @@ def photo_dislike(photo_id):
     photo_obj.num_like = photo_obj.num_like - 1 if photo_obj.num_like else 1   
 
     db.session.commit()
+
+    return jsonify(photo_obj.to_dict())
+
+@app.route('/photos/<int:photo_id>/save.json', methods=['POST'])
+def save_photo(photo_id):
+
+    if not session:
+        flash('Please login to save photos!')
+
+    photo_obj = Photo.query.filter_by(photo_id=photo_id).one()
+
+    # need to rework for this portion after creating middle tables in model.py
+    # user_id = session['user_id']
+
+    # user = User.query.filter_by(user_id=user_id).one()
+
+    # photo_obj.photo_id = user.fav_photo_id 
+
+    # db.session.commit()
 
     return jsonify(photo_obj.to_dict())
 
@@ -186,8 +199,6 @@ def photo_detail(photo_id):
     return render_template('photo_detail.html', photo=photo,
                             comment_lst=comment_lst)
 
-
-# todo: make GET route for /photos/<int:photo_id>/comments
 
 @app.route('/photos/<int:photo_id>/comments', methods=['POST'])
 def make_comment(photo_id):

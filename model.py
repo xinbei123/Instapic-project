@@ -3,7 +3,7 @@ from datetime import datetime
 
 db = SQLAlchemy()
 
-##############################################################################
+################################################################################
 # Model definitions
 
 class User(db.Model):
@@ -20,7 +20,8 @@ class User(db.Model):
 
     def __repr__(self):
 
-            return f"<User user_id={self.user_id} username={self.username}>"
+            return f"""<User user_id={self.user_id} username={self.username}"""
+
 
 class Photo(db.Model):
     """Show photo info"""
@@ -39,7 +40,7 @@ class Photo(db.Model):
     hashtags = db.relationship("Hashtag", secondary="photohashtags",
                                 backref="photos")
 
-    
+
     def __repr__(self):
 
         return f"""
@@ -58,6 +59,32 @@ class Photo(db.Model):
         result['num_like'] = self.num_like
 
         return result
+
+
+class Userphoto(db.Model):
+    """Association table between users and photos"""
+
+    __tablename__ = "userphotos"
+
+    userphoto_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+
+    user_id = db.Column(db.Integer, 
+                         db.ForeignKey('users.user_id'), nullable=False)
+    photo_id = db.Column(db.Integer, 
+                         db.ForeignKey('photos.photo_id'), nullable=False) 
+
+    users = db.relationship("User",
+                               backref=db.backref("userphotos",
+                                                  order_by=userphoto_id))
+    photos = db.relationship("Photo",
+                               backref=db.backref("userphotos",
+                                                  order_by=userphoto_id))
+
+    def __repr__(self):
+
+            return f"""<Userphoto userphoto_id={self.userphoto_id} 
+                       user_id={self.user_id}
+                       photo_id = {self.photo_id}>"""
 
 
 class Comment(db.Model):
@@ -97,6 +124,7 @@ class Comment(db.Model):
         result['user_id'] = self.user_id
 
         return result
+
 
 class Hashtag(db.Model):
     """Show Hashtag info about photo"""
