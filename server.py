@@ -32,7 +32,9 @@ def homepage():
 
     photos = Photo.query.order_by(Photo.photo_id).all()
 
-    return render_template('photo_list.html', photos=photos)
+    user_id = session['user_id']
+
+    return render_template('photo_list.html', photos=photos, user_id=user_id)
 
 
 @app.route('/photos/<int:photo_id>/like.json', methods=['POST'])
@@ -224,7 +226,7 @@ def make_comment(photo_id):
             result.append(comment.to_dict())
 
         return jsonify(result)
-        
+
 
 @app.route('/upload', methods=['GET'])
 def upload_form():
