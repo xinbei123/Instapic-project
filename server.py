@@ -32,9 +32,7 @@ def homepage():
 
     photos = Photo.query.order_by(Photo.photo_id).all()
 
-    user_id = session['user_id']
-
-    return render_template('photo_list.html', photos=photos, user_id=user_id)
+    return render_template('photo_list.html', photos=photos)
 
 
 @app.route('/photos/<int:photo_id>/like.json', methods=['POST'])
@@ -67,13 +65,23 @@ def save_photo(photo_id):
 
     user_id = session['user_id']
 
+    db_userphoto = Photo.query.options(db.joinedload('userphotos')).get(photo_id)
+
     new_userphoto = Userphoto(user_id=user_id, photo_id=photo_id)
 
-    db.session.add(new_userphoto)
+    # userphoto object which includes all photos belong to same user
+    db_userphoto.userphotos.append(new_userphoto)
 
+    db.session.add(new_userphoto)
     db.session.commit()
 
-    return jsonify(new_userphoto.to_dict())
+    result = []
+
+    for photo in db_userphoto.userphotos:
+
+        result.append(photo.to_dict())
+
+    return jsonify(result)
 
 
 @app.route('/hashtag', methods=['GET'])

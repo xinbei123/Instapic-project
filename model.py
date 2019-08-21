@@ -94,6 +94,7 @@ class Userphoto(db.Model):
 
         result['user_id'] = self.user_id
         result['photo_id'] = self.photo_id
+        result['photo_url'] = self.photos.photo_url
 
         return result
 
