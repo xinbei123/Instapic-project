@@ -9,11 +9,13 @@
     <form id="comment-form" action="/photos/{{ photo.photo_id }}/comments" method="POST">
         Comment: <input type="text" name="comment">
         <input type="hidden" name="photoId" value="{{ photo.photo_id }}">
-        <input type="submit" name="submit"> <br>
+        <input type="submit" name="submit">
+        <div id="commentMsg"></div>
     </form>
+    
 </div>
 
-<ul>
+<ul id="commentId">
     {% for comment in comment_lst %}
         <li>
             {{ comment.comment }}

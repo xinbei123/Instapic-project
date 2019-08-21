@@ -19,8 +19,11 @@ function showComment(evt) {
                 
                 const latestComment = comments[comments.length - 1];
             
-                $('ul').prepend(`<li>${latestComment.comment}</li>`);
+                $('#commentId').prepend(`<li>${latestComment.comment}</li>`);
             });
+
+        $('#comment-form input[name="comment"]').val('');
+        $('#commentMsg').html('Comments Saved!')
     }
 
 }

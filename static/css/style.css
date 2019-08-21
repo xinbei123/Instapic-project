@@ -22,3 +22,12 @@
 img {
     padding: 5px;
 }
+
+.btn-outline-success {
+
+    background-color: blue;
+}
+
+#commentMsg {
+    display: inline-block;
+}

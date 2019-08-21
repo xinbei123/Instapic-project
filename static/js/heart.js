@@ -25,7 +25,7 @@ $(document).ready(function() {
 
         $.post(`/photos/${photoid}/dislike.json`, function(results) {
 
-            $(evt.target).html(results.num_like)
+            $('#likeBtn').html(results.num_like)
         })
 
     })

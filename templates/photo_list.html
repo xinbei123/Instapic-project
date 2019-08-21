@@ -8,15 +8,14 @@
             <img src="{{ photo.photo_url }}"></a>
             <br>
         
-        <span id="likeBtn" value="{{ photo.photo_id }}">
-            <i class="fas fa-heart upvote" data-photo-id="{{ photo.photo_id }}">
+        <span value="{{ photo.photo_id }}">
+            <i id="likeBtn" class="fas fa-heart upvote" data-photo-id="{{ photo.photo_id }}">
             {{ photo.num_like }}</i>
         </span>      
-    
 
         <span id="dislikeBtn" value="{{ photo.photo_id }}">
             <i class="far fa-heart downvote" data-photo-id="{{ photo.photo_id }}">
-            {{ photo.num_like }}</i>
+            </i>
         </span>
         
         <span id="savedBtn" value="{{ photo.photo_id}}">

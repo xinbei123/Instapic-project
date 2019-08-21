@@ -31,6 +31,8 @@
     <!--bootstrap js-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <script src="/static/js/hashtag.js"></script>
+
 </head>
 <body>
     <div class="container">
@@ -43,10 +45,11 @@
                 <li class="nav-item">
                       <a class="nav-link nav-title" href="/"><i class="fab fa-instagram"></i></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-search" href="/hashtag">Hashtag</a>
-                </li>   
             </ul>
+                <form id="hashtag-form" class="form-inline my-2 my-lg-0" action="/hashtag" method="POST">
+                    <input type="text" name="hashtag" class="typeahead" autocomplete="off" spellcheck="false" class="form-control mr-sm-2" placeholder="#travel" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
 
             <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
                 <li class="nav-item">
@@ -84,6 +87,7 @@
     </div>
 
     {% block javascript %}
+
     {% endblock %}
 
 </body>
