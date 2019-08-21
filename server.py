@@ -187,8 +187,7 @@ def user_profile(user_id):
 
     photos = Photo.query.filter_by(photo_user_id=user_id).all()
 
-    userphoto_lst = Userphoto.query.filter_by(user_id=user_id)
-                                   .order_by(desc('userphoto_id')).all()
+    userphoto_lst = Userphoto.query.filter_by(user_id=user_id).order_by(desc('userphoto_id')).all()
 
     return render_template('user_profile.html', photos=photos, 
                             userphoto_lst=userphoto_lst)

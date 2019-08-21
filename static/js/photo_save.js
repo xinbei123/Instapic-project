@@ -15,11 +15,10 @@ $(document).ready(function() {
 
             const latestSavedPhoto = results[results.length-1];
 
-
             //hardcoded, need to figure out for different user
             window.location.replace('/users/4')
 
-            $('div').prepend(${latestSavedPhoto.photo_url})
+            $('div').prepend(`${latestSavedPhoto.photo_url}`)
 
         })
     })
