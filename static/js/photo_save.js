@@ -15,7 +15,6 @@ $(document).ready(function() {
 
             const latestSavedPhoto = results[results.length-1];
 
-            //hardcoded, need to figure out for different user
             window.location.replace(`/users/${results[0]['user_id']}`)
 
             $('div').prepend(`${latestSavedPhoto.photo_url}`)

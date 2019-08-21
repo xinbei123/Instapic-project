@@ -30,6 +30,10 @@ def allowed_file(filename):
 def homepage():
     """Show a list of photos as homepage"""
 
+    if not 'user_id' in session:
+
+        return redirect('/login')
+
     photos = Photo.query.order_by(Photo.photo_id).all()
 
     return render_template('photo_list.html', photos=photos)
@@ -148,6 +152,12 @@ def register_process():
 @app.route('/login', methods=['GET'])
 def login_form():
     """Show login form"""
+
+    if 'user_id' in session:
+
+        user_id = session['user_id']
+
+        return redirect(f"/users/{user_id}")
 
     return render_template('login.html')
 
