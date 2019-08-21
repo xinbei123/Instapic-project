@@ -87,6 +87,16 @@ class Userphoto(db.Model):
                        user_id={self.user_id}
                        photo_id = {self.photo_id}>"""
 
+    def to_dict(self):
+        """Return a dictionary version of the userphotos."""
+
+        result = {}
+
+        result['user_id'] = self.user_id
+        result['photo_id'] = self.photo_id
+
+        return result
+
 
 class Comment(db.Model):
     """Show comment about photo by user"""
@@ -152,7 +162,7 @@ class Photohashtag(db.Model):
     __tablename__ = "photohashtags"
 
     photohashtag_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    
+
     photo_id = db.Column(db.Integer, 
                          db.ForeignKey('photos.photo_id'), nullable=False)
     hashtag_id = db.Column(db.Integer, 

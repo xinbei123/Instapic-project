@@ -67,13 +67,11 @@ def save_photo(photo_id):
 
     new_userphoto = Userphoto(user_id=user_id, photo_id=photo_id)
 
-    print(f"debuggggggggggggggg {new_userphoto}")
-
     db.session.add(new_userphoto)
 
     db.session.commit()
 
-    return redirect('/')
+    return jsonify(new_userphoto.to_dict())
 
 
 @app.route('/hashtag', methods=['GET'])
@@ -225,8 +223,8 @@ def make_comment(photo_id):
 
             result.append(comment.to_dict())
 
-        # return redirect(f"/photos/{photo_id}")
         return jsonify(result)
+        
 
 @app.route('/upload', methods=['GET'])
 def upload_form():
