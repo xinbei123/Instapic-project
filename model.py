@@ -65,6 +65,7 @@ class Userphoto(db.Model):
     """Association table between users and photos"""
 
     __tablename__ = "userphotos"
+    __table_args__ = (db.UniqueConstraint('user_id', 'photo_id'),)
 
     userphoto_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
 
