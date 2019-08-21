@@ -9,4 +9,14 @@
 
 <h3>Saved Photos</h3>
 
+<div>
+   {% for userphoto in userphoto_lst %}
+    
+        <img src="{{ userphoto.photos.photo_url }}">
+        
+    {% endfor %} 
+    
+</div>
+
+
 {% endblock %}

@@ -15,12 +15,12 @@ $(document).ready(function() {
 
             const latestSavedPhoto = results[results.length-1];
 
-            $('ul').prepend(`<li>${latestSavedPhoto.photo_url}</li>`)
+
+            //hardcoded, need to figure out for different user
+            window.location.replace('/users/4')
+
+            $('div').prepend(${latestSavedPhoto.photo_url})
 
         })
     })
 })
-
-// to do
-// need to figure out how to redirect to the user profile page
-// need to figure out how to let user not save the same photo multiple times
