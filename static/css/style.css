@@ -9,7 +9,7 @@
 }
 
 .nav-item {
-    padding: 5px;
+    padding: 10px;
     font-size: 1.2em;
 }
 
@@ -25,9 +25,14 @@ img {
 
 .btn-outline-success {
 
-    background-color: blue;
+    color: blue;
 }
 
 #commentMsg {
     display: inline-block;
 }
+
+
+
+
+
