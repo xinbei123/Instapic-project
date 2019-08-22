@@ -6,12 +6,11 @@
 
 <div>
     <form action="/upload" method="POST" enctype="multipart/form-data">
-        Caption <input type="text" name="caption"> <br>
-        Hashtag <input type="text" name="hashtag"> <br>
+        Caption <input type="text" name="caption"> 
+        Hashtag <input type="text" name="hashtag" class="typeahead" autocomplete="off" spellcheck="false"> <br><br>
         <hr>
         <input type="file" name="file">
-        <input type="submit" name="Upload">
-        
+        <input type="submit" name="Upload">    
     </form>
 </div>
 
