@@ -34,7 +34,7 @@ def homepage():
 
         return redirect('/login')
 
-    photos = Photo.query.order_by(Photo.photo_id).all()
+    photos = Photo.query.order_by(desc('date_uploaded')).all()
 
     return render_template('photo_list.html', photos=photos)
 
@@ -195,9 +195,7 @@ def logout():
 def user_profile(user_id):
     """User profile page that contains user information"""
 
-
-
-    photos = Photo.query.filter_by(photo_user_id=user_id).all()
+    photos = Photo.query.order_by(desc('date_uploaded')).filter_by(photo_user_id=user_id).all()
 
     userphoto_lst = Userphoto.query.filter_by(user_id=user_id).order_by(desc('userphoto_id')).all()
 
@@ -266,40 +264,39 @@ def upload_file():
     caption = request.form['caption']
     hashtag = request.form['hashtag']
 
-    if not session:
-        return redirect('/login')
+    user_id = session['user_id']
+
+    if file.name == '':
+        flash('No selected photos')
+        return redirect(request.url)
+
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file_path = os.path.join(UPLOAD_FOLDER, filename)
+        file.save(file_path)
+        flash('Photo successfully uploaded')
+
+        photo_user_id = session.get('user_id')
+
+        new_photo = Photo(photo_user_id=photo_user_id, 
+                          photo_url=('/' + file_path), caption=caption)
+
+        db_hashtag = Hashtag.query.filter_by(hashtag=hashtag).first()
+
+        if not db_hashtag:
+            db_hashtag = Hashtag(hashtag=hashtag)
+
+        new_photo.hashtags.append(db_hashtag)
+
+        db.session.add(new_photo)
+        db.session.commit()
+
+        # return redirect(url_for('uploaded_file', filename=filename))
+        return redirect(f'/users/{user_id}')
 
     else:
-        if file.name == '':
-            flash('No selected photos')
-            return redirect(request.url)
-
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(UPLOAD_FOLDER, filename)
-            file.save(file_path)
-            flash('Photo successfully uploaded')
-
-            photo_user_id = session.get('user_id')
-
-            new_photo = Photo(photo_user_id=photo_user_id, 
-                              photo_url=('/' + file_path), caption=caption)
-
-            db_hashtag = Hashtag.query.filter_by(hashtag=hashtag).first()
-
-            if not db_hashtag:
-                db_hashtag = Hashtag(hashtag=hashtag)
-
-            new_photo.hashtags.append(db_hashtag)
-
-            db.session.add(new_photo)
-            db.session.commit()
-
-            return redirect(url_for('uploaded_file', filename=filename))
-
-        else:
-            flash('Only png, jpg, jpeg, gif file types are allowed!')
-            return redirect(request.url)
+        flash('Only png, jpg, jpeg, gif file types are allowed!')
+        return redirect(request.url)
 
 
 @app.route('/uploads/<filename>')
