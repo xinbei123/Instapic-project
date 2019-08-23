@@ -4,7 +4,7 @@
   
 }
 
-#likeBtn, #dislikeBtn, #savedBtn {
+#likeBtn, #dislikeBtn, #savedBtn, #hashtagBtn {
     cursor: pointer;
 }
 

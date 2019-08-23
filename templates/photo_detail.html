@@ -7,9 +7,10 @@
 
 <div>
     {% for hashtag in photo.hashtags %}
-
-        {{ hashtag.hashtag }}
-  
+    <span id="hashtagBtn">
+        <i class="fas fa-hashtag">{{ hashtag.hashtag }}</i>   
+    </span>
+        
     {% endfor %}
 </div>
    
