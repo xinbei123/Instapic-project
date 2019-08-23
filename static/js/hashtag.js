@@ -4,8 +4,6 @@ $(document).ready(function(){
 
     $.get('/hashtag.json', function (results) {
 
-        console.log(results)
-
         hashtag_array = []
 
         for (let result of results){

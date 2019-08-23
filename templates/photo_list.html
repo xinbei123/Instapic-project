@@ -7,7 +7,11 @@
         <a href="/photos/{{ photo.photo_id }}">
             <img src="{{ photo.photo_url }}"></a>
             <br>
-        
+
+        <div id="caption" value="{{ photo.caption }}">
+            {{ photo.caption }}
+        </div>
+ 
         <span value="{{ photo.photo_id }}">
             <i id="likeBtn" class="fas fa-heart upvote" data-photo-id="{{ photo.photo_id }}">
             {{ photo.num_like }}</i>
@@ -27,6 +31,7 @@
     {% endfor %}
 
 {% endblock content%}
+
 </div>
 
 {% block javascript %}

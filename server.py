@@ -36,7 +36,7 @@ def homepage():
 
     photos = Photo.query.order_by(desc('date_uploaded')).all()
 
-    return render_template('photo_list.html', photos=photos)
+    return render_template('photo_list.html', photos=photos, hashtags=hashtags)
 
 
 @app.route('/photos/<int:photo_id>/like.json', methods=['POST'])
@@ -297,7 +297,7 @@ def upload_file():
     else:
         flash('Only png, jpg, jpeg, gif file types are allowed!')
         return redirect(request.url)
-
+        
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):

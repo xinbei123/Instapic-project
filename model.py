@@ -48,7 +48,8 @@ class Photo(db.Model):
          photo_id={self.photo_id} 
          photo_user_id={self.photo_user_id}
          photo_url={self.photo_url}
-         num_like={self.num_like}>"""
+         num_like={self.num_like}>
+        """
 
     def to_dict(self):
         """Return a dictionary version of the photo likes."""
@@ -67,7 +68,7 @@ class Userphoto(db.Model):
     __tablename__ = "userphotos"
 
     __table_args__ = (db.UniqueConstraint('user_id', 'photo_id'),)
-    
+
 
     userphoto_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
 
