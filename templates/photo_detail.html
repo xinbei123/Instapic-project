@@ -6,6 +6,15 @@
 </div>
 
 <div>
+    {% for hashtag in photo.hashtags %}
+
+        {{ hashtag.hashtag }}
+  
+    {% endfor %}
+</div>
+   
+
+<div>
     <form id="comment-form" action="/photos/{{ photo.photo_id }}/comments" method="POST">
         Comment: <input type="text" name="comment">
         <input type="hidden" name="photoId" value="{{ photo.photo_id }}">
