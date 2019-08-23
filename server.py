@@ -217,6 +217,7 @@ def photo_detail(photo_id):
     return render_template('photo_detail.html', photo=photo,
                             comment_lst=comment_lst)
 
+
 @app.route('/photos/<int:hashtag_id>/hashtag', methods=['GET'])
 def show_hashtag(hashtag_id):
     """Show list of photos when user click on hashtag for each photo"""
@@ -272,6 +273,10 @@ def make_comment(photo_id):
 @app.route('/upload', methods=['GET'])
 def upload_form():
     """Show upload form information"""
+
+    if not session:
+
+        return redirect('/')
 
     return render_template('upload.html')
 
