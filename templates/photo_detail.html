@@ -8,7 +8,7 @@
 <div>
     {% for hashtag in photo.hashtags %}
     <span id="hashtagBtn">
-        <i class="fas fa-hashtag">{{ hashtag.hashtag }}</i>   
+        <i class="fas fa-hashtag hashBtn" data-photo-id="{{ photo.photo_id }}" data-hashtag-id="{{ hashtag.hashtag_id }}">{{ hashtag.hashtag }}</i>   
     </span>
         
     {% endfor %}
@@ -36,6 +36,8 @@
 {% endblock content%}
 
 {% block javascript %}
+
+<script src="/static/js/display_hashtag.js"></script>
 {% if "user_id" in session %}
 
     <script src="/static/js/comment.js"></script>

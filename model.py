@@ -161,6 +161,7 @@ class Hashtag(db.Model):
         return {"hashtag_id": self.hashtag_id,
                 "hashtag": self.hashtag}
 
+
 class Photohashtag(db.Model):
     """Association table between photo and hashtag"""
 
@@ -185,6 +186,18 @@ class Photohashtag(db.Model):
             return f"""<Photohashtag photohashtag_id={self.photohashtag_id} 
                        photo_id={self.photo_id}
                        hashtag_id = {self.hashtag_id}>"""
+
+    def to_dict(self):
+        """Return a dictionary version of the photohashtags"""
+
+        result = {}
+
+        result['hashtag_id'] = self.hashtag_id
+        result['photo_id'] = self.photo_id
+        result['photo_url'] = self.photos.photo_url
+
+        return result
+
 
 
 ##############################################################################

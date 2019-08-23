@@ -11,8 +11,6 @@ $(document).ready(function() {
 
         $.post(`/photos/${photoId}/save.json`, function(results) {
 
-            console.log(results)
-
             const latestSavedPhoto = results[results.length-1];
 
             window.location.replace(`/users/${results[0]['user_id']}`)

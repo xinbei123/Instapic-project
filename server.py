@@ -191,6 +191,7 @@ def logout():
     flash('You are logged out!')
     return redirect('/photos')
 
+
 @app.route('/users/<int:user_id>', methods=['GET'])
 def user_profile(user_id):
     """User profile page that contains user information"""
@@ -215,6 +216,25 @@ def photo_detail(photo_id):
 
     return render_template('photo_detail.html', photo=photo,
                             comment_lst=comment_lst)
+
+@app.route('/photos/<int:hashtag_id>/hashtag', methods=['GET'])
+def show_hashtag(hashtag_id):
+    """Show list of photos when user click on hashtag for each photo"""
+
+    photohashtags = Photohashtag.query.filter_by(hashtag_id=hashtag_id).all()
+
+    return render_template('display_hashtag.html', photohashtags=photohashtags)
+
+
+@app.route('/photos/<int:hashtag_id>/hashtag.json', methods=['POST'])
+def display_hashtag(hashtag_id):
+    """json file of hashtag photos when user click on hashtaged photo"""
+
+    photohashtags = Photohashtag.query.filter_by(hashtag_id=hashtag_id).all()
+
+    list_photohashtag = [photohashtag.to_dict() for photohashtag in photohashtags]
+
+    return jsonify(list_photohashtag)
 
 
 @app.route('/photos/<int:photo_id>/comments', methods=['POST'])
