@@ -147,6 +147,7 @@ class Hashtag(db.Model):
 
     __tablename__ = "hashtags"
 
+
     hashtag_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     hashtag = db.Column(db.String, nullable=True, unique=True)
     
@@ -166,6 +167,8 @@ class Photohashtag(db.Model):
     """Association table between photo and hashtag"""
 
     __tablename__ = "photohashtags"
+
+    __table_args__ = (db.UniqueConstraint('hashtag_id', 'photo_id'),)
 
     photohashtag_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
 

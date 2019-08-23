@@ -9,7 +9,7 @@ $(document).ready(function() {
     
         $.post(`/photos/${hashtagId}/hashtag.json`, function(results) {
 
-            console.log(results)
+            const latestTagged = results[results.length-1];
 
             window.location.replace(`/photos/${hashtagId}/hashtag`)
 
