@@ -36,6 +36,7 @@ class Photo(db.Model):
     photo_url = db.Column(db.String, nullable=False)
     caption = db.Column(db.String, nullable=True)
     num_like = db.Column(db.Integer, nullable=True, default=0)
+    num_dislike = db.Column(db.Integer, nullable=True, default=0)
 
     hashtags = db.relationship("Hashtag", secondary="photohashtags",
                                 backref="photos")
@@ -48,7 +49,8 @@ class Photo(db.Model):
          photo_id={self.photo_id} 
          photo_user_id={self.photo_user_id}
          photo_url={self.photo_url}
-         num_like={self.num_like}>
+         num_like={self.num_like}
+         num_dislike={self.num_dislike}>
         """
 
     def to_dict(self):
@@ -58,6 +60,7 @@ class Photo(db.Model):
 
         result['photo_id'] = self.photo_id
         result['num_like'] = self.num_like
+        result['num_dislike'] = self.num_dislike
 
         return result
 

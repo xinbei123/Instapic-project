@@ -6,6 +6,11 @@
 
 #likeBtn, #dislikeBtn, #savedBtn, #hashtagBtn {
     cursor: pointer;
+    padding: 3px;
+}
+
+span {
+    padding: 3px;
 }
 
 .nav-item {

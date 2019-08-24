@@ -58,7 +58,7 @@ def photo_dislike(photo_id):
 
     photo_obj = Photo.query.filter_by(photo_id=photo_id).one()
 
-    photo_obj.num_like = photo_obj.num_like - 1 if photo_obj.num_like else 1   
+    photo_obj.num_dislike = photo_obj.num_dislike + 1 if photo_obj.num_dislike else 1   
 
     db.session.commit()
 

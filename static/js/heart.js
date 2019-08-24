@@ -1,6 +1,6 @@
 "user-strict";
 
-//Ajax post request for like button
+//Ajax post request for thumbsup button
 $(document).ready(function() {
 
     $('.upvote').on('click', function(evt) {
@@ -16,7 +16,7 @@ $(document).ready(function() {
     }); 
 });
 
-//Ajax post request for unlike button
+//Ajax post request for thumbsdown button
 $(document).ready(function() {
 
     $('.downvote').on('click', function(evt) {
@@ -25,7 +25,9 @@ $(document).ready(function() {
 
         $.post(`/photos/${photoid}/dislike.json`, function(results) {
 
-            $('#likeBtn').html(results.num_like)
+            console.log(results)
+
+            $(evt.target).html(results.num_dislike)
         })
 
     })
