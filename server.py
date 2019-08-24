@@ -227,17 +227,6 @@ def show_hashtag(hashtag_id):
     return render_template('display_hashtag.html', photohashtags=photohashtags)
 
 
-@app.route('/photos/<int:hashtag_id>/hashtag.json', methods=['POST'])
-def display_hashtag(hashtag_id):
-    """json file of hashtag photos when user click on hashtaged photo"""
-
-    photohashtags = Photohashtag.query.filter_by(hashtag_id=hashtag_id).all()
-
-    list_photohashtag = [photohashtag.to_dict() for photohashtag in photohashtags]
-
-    return jsonify(list_photohashtag)
-
-
 @app.route('/photos/<int:photo_id>/comments', methods=['POST'])
 def make_comment(photo_id):
     """Allow user to make comments and stored in db"""

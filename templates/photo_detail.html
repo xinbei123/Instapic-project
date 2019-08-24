@@ -8,13 +8,13 @@
 <div>
     {% for hashtag in photo.hashtags %}
     <span id="hashtagBtn">
-        <i class="fas fa-hashtag hashBtn" data-photo-id="{{ photo.photo_id }}" data-hashtag-id="{{ hashtag.hashtag_id }}">{{ hashtag.hashtag }}</i>   
-    </span>
-        
+        <a href="/photos/{{ hashtag.hashtag_id }}/hashtag">
+            <i class="fas fa-hashtag hashBtn" data-photo-id="{{ photo.photo_id }}" data-hashtag-id="{{ hashtag.hashtag_id }}">{{ hashtag.hashtag }}</i>
+        </a>   
+    </span>       
     {% endfor %}
 </div>
    
-
 <div>
     <form id="comment-form" action="/photos/{{ photo.photo_id }}/comments" method="POST">
         Comment: <input type="text" name="comment">
@@ -36,8 +36,6 @@
 {% endblock content%}
 
 {% block javascript %}
-
-<script src="/static/js/display_hashtag.js"></script>
 
 {% if "user_id" in session %}
 
