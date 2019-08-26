@@ -64,6 +64,7 @@ def photo_dislike(photo_id):
 
     return jsonify(photo_obj.to_dict())
 
+
 @app.route('/photos/<int:photo_id>/save.json', methods=['POST'])
 def save_photo(photo_id):
 
@@ -113,6 +114,7 @@ def search_hashtag():
         photohashtags = Photohashtag.query.filter_by(hashtag_id=hashtag_id).all()
         
     return render_template('hashtag.html', photohashtags=photohashtags)
+    
 
 @app.route('/hashtag.json')
 def hashtag_info():

@@ -1,4 +1,4 @@
-"user-strict";
+"use-strict";
 
 
 $(document).ready(function() {
@@ -14,8 +14,6 @@ $(document).ready(function() {
             const latestSavedPhoto = results[results.length-1];
 
             window.location.replace(`/users/${results[0]['user_id']}`)
-
-            $('div').prepend(`${latestSavedPhoto.photo_url}`)
 
         })
     })

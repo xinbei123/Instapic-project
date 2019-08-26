@@ -1,6 +1,6 @@
-"user-strict";
+"use-strict";
 
-//Ajax post request for thumbsup button
+//Ajax post request for thumbsup/thumbsdown button
 $(document).ready(function() {
 
     $('.upvote').on('click', function(evt) {
@@ -14,10 +14,6 @@ $(document).ready(function() {
         });
 
     }); 
-});
-
-//Ajax post request for thumbsdown button
-$(document).ready(function() {
 
     $('.downvote').on('click', function(evt) {
 
@@ -31,7 +27,8 @@ $(document).ready(function() {
         })
 
     })
-})
+
+});
 
 
 
