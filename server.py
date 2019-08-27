@@ -89,13 +89,6 @@ def save_photo(photo_id):
     return jsonify(result)
 
 
-@app.route('/hashtag', methods=['GET'])
-def hashtag_search():
-    """Show hashtag search box"""
-
-    return render_template('photo_hashtag.html')
-
-
 @app.route('/hashtag', methods=['POST'])
 def search_hashtag():
     """Show photo based on hashtag"""
