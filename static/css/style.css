@@ -52,7 +52,7 @@ img {
 
 
 
-/* style for signin and login page*/
+/* style for register and login page */
 
 .login-clean {
   background:#f1f7fc;
@@ -121,8 +121,6 @@ img {
   opacity:1;
   text-decoration:none;
 }
-
-
 
 
 
