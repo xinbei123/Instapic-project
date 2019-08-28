@@ -36,20 +36,10 @@ img {
     display: inline-block;
 }
 
-#hashtag-form {
-    padding-left: 13em;
-}
-
-
-#navCon {
-    padding-left: 5em;
-    padding-right: 5em;
-}
-
 .container {
     width: 100%;
-    padding-right: 5em;
-    padding-left: 5em;
+    padding-right: 6em;
+    padding-left: 6em;
     margin-right: auto;
     margin-left: auto;
 }
@@ -60,6 +50,11 @@ input#userbox.form-control {
 
 input#pswbox.form-control {
     width: 20em;
+}
+
+.navbar {
+    padding-left: 10em;
+    padding-right: 10em;
 }
 
 
