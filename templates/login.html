@@ -2,12 +2,12 @@
 {% block content %}
 
   <form action="/login" method="POST">
-    <label for="InputUsername">Username</label>
-      <input type="username" class="form-control" name="username" placeholder="Username" required>
+    <label>Username</label>
+      <input id="userbox" type="username" class="form-control" name="username" placeholder="Username" required>
 
     <div class="form-group">
-      <label for="InputPassword">Password</label>
-      <input type="password" class="form-control" name="password" placeholder="Password" required>
+      <label>Password</label>
+      <input id="pswbox" type="password" class="form-control" name="password" placeholder="Password" required>
     </div>
 
     <button type="submit" class="btn btn-primary" value="Log In">Log In</button>

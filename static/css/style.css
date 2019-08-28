@@ -23,7 +23,6 @@ span {
     font-style: oblique;
 }
 
-
 img {
     padding: 5px;
 }
@@ -38,8 +37,31 @@ img {
 }
 
 #hashtag-form {
-    padding-left: 15em;
+    padding-left: 13em;
 }
+
+
+#navCon {
+    padding-left: 5em;
+    padding-right: 5em;
+}
+
+.container {
+    width: 100%;
+    padding-right: 5em;
+    padding-left: 5em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+input#userbox.form-control {
+    width: 20em;
+}
+
+input#pswbox.form-control {
+    width: 20em;
+}
+
 
 
 

@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
-<div class="container">
+<div id="photoCon" class="container">
 {% block content %}
 
     {% for photo in photos %}
+
         <a href="/photos/{{ photo.photo_id }}">
-            <img src="{{ photo.photo_url }}"></a>
+            <img id = "photoList" src="{{ photo.photo_url }}" class="img-fluid img-thumbnail" alt="Responsive image"></a>
             <br>
 
         <div id="caption" value="{{ photo.caption }}">
