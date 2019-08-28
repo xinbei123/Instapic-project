@@ -299,8 +299,8 @@ def upload_file():
 
         db.session.add(new_photo)
         db.session.commit()
+        
 
-        # return redirect(url_for('uploaded_file', filename=filename))
         return redirect(f'/users/{user_id}')
 
     else:
