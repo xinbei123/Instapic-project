@@ -141,6 +141,7 @@ class Comment(db.Model):
         result['comment_id'] = self.comment_id
         result['comment'] = self.comment
         result['user_id'] = self.user_id
+        result['photo_id'] = self.photos.photo_id
 
         return result
 

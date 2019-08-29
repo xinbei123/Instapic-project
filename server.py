@@ -212,6 +212,17 @@ def photo_detail(photo_id):
     return render_template('photo_detail.html', photo=photo,
                             comment_lst=comment_lst)
 
+# react portion
+@app.route('/photos/comments.json')
+def comment_json():
+    """jsonifed file of all the comments for each photo"""
+
+    comments = Comment.query.all()
+
+    list_comment = [comment.to_dict() for comment in comments]
+
+    return jsonify(list_comment)
+
 
 @app.route('/photos/<int:hashtag_id>/hashtag', methods=['GET'])
 def show_hashtag(hashtag_id):
@@ -299,7 +310,7 @@ def upload_file():
 
         db.session.add(new_photo)
         db.session.commit()
-        
+
 
         return redirect(f'/users/{user_id}')
 

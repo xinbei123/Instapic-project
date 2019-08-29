@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 
-<div class="container">
 {% block content %}
 
     {% for photo in photos %}
@@ -12,6 +11,8 @@
         <div id="caption" value="{{ photo.caption }}">
             {{ photo.caption }}
         </div>
+
+        <div class="commentNodes" value="{{ photo.photo_id }}"></div>
  
         <span value="{{ photo.photo_id }}">
             <i id="likeBtn" class="fas fa-thumbs-up upvote" data-photo-id="{{ photo.photo_id }}">{{ photo.num_like }}</i>
@@ -31,7 +32,18 @@
 
 {% endblock content%}
 
-</div>
+{% block react %}
+
+<!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="http://unpkg.com/babel-standalone"></script>
+
+  <!-- Load our React component. -->
+  <script src="/static/react/comment-react.jsx" type="text/jsx"></script>
+
+{% endblock %}
 
 {% block javascript %}
 
