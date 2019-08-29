@@ -12,7 +12,7 @@
             {{ photo.caption }}
         </div>
 
-        <div class="commentNodes" value="{{ photo.photo_id }}"></div>
+        <div class="commentNodes" data-photo-id="{{ photo.photo_id }}"></div>
  
         <span value="{{ photo.photo_id }}">
             <i id="likeBtn" class="fas fa-thumbs-up upvote" data-photo-id="{{ photo.photo_id }}">{{ photo.num_like }}</i>

@@ -28,17 +28,21 @@ class Comment extends React.Component {
 
         var { isLoaded, items } = this.state;
 
-        return (
-            <div class="commentNodes">
+        const result = items.filter(item => item.photo_id == this.props.photoId)
 
-                <ul>
-                    {items.map(item => (
+        const comments = result.map(item => (
 
-                        <li key={item.photo_id}>
+                        <li key={item.comment_id}>
                             {item.comment}
                         </li>
 
-                        ))}
+                        ))
+
+        return (
+            <div className="commentNodes">
+
+                <ul>
+                    {comments}
                 </ul>
             </div>
 
@@ -50,10 +54,10 @@ const commentNodes = document.querySelectorAll(".commentNodes")
 
 for (let commentNode of commentNodes) {
 
-    ReactDOM.render(
-    <Comment/>,
-    commentNode);
-        }
+    const photo_id = $(commentNode).data('photo-id')
+
+    ReactDOM.render(<Comment photoId={photo_id}/>, commentNode);
+}
 
 
 
