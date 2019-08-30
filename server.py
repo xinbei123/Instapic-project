@@ -172,18 +172,16 @@ def login_process():
         flash('Invalid password, please try again!')
         return redirect('login')
 
-    flash(f"Welcome to Instapic, {user.username}")
-
     users = User.query.filter_by(username=username).one()
 
     return redirect(f"/users/{users.user_id}")
+    
 
 @app.route('/logout')
 def logout():
     """delete session and let user logout"""
 
     del session['user_id']
-    flash('You are logged out!')
     return redirect('/photos')
 
 
@@ -240,29 +238,22 @@ def make_comment(photo_id):
     comment = request.form.get('comment')
     user_id = session.get('user_id')
 
-    if not session:
-        flash('Please login to make comments!')
-        return redirect('/login')
+    db_photo = Photo.query.options(db.joinedload('comments')).get(photo_id)
 
-    else:
+    new_comment = Comment(comment=comment, user_id=user_id)
 
-        db_photo = Photo.query.options(db.joinedload('comments')).get(photo_id)
+    db_photo.comments.append(new_comment)
 
-        new_comment = Comment(comment=comment, user_id=user_id)
+    db.session.add(new_comment)
+    db.session.commit()
 
-        db_photo.comments.append(new_comment)
+    result = []
 
-        flash('comments added!')
-        db.session.add(new_comment)
-        db.session.commit()
+    for comment in db_photo.comments:
 
-        result = []
+        result.append(comment.to_dict())
 
-        for comment in db_photo.comments:
-
-            result.append(comment.to_dict())
-
-        return jsonify(result)
+    return jsonify(result)
 
 
 @app.route('/upload', methods=['GET'])
