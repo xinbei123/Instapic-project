@@ -37,13 +37,11 @@
 </head>
 <body>
     <div class="container">
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand"><img src="/static/images/logo.jpg" class="center-block" style="height:40px;margin-top:10px;margin-bottom:10px;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -55,17 +53,32 @@
                     <li class="nav-item active">
                           <a class="nav-link" href="/login"><i class="fa fa-user"></i></a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item active" data-toggle="modal" data-target="#logoutModal">
                         <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i></a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" action="/hashtag" method="POST">
-                        <input type="text" name="hashtag" class="typeahead" autocomplete="off" spellcheck="false" class="form-control mr-sm-2" placeholder="#travel" aria-label="Search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                </form>        
+            <form class="form-inline my-2 my-lg-0" action="/hashtag" method="POST">
+                    <input type="text" name="hashtag" class="typeahead" autocomplete="off" spellcheck="false" class="form-control mr-sm-2" placeholder="#travel" aria-label="Search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+            </form>        
           </div>
         </nav>
+    </div>
 
+    <div class="modal" id="logoutModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Logging Out</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>You need to log back in!</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="container">

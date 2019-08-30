@@ -2,17 +2,38 @@
 
 {% block content %}
 
-<h2>Upload new photo</h2>
+<h2>Upload new photo</h2><br>
 
-<div>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        Caption <input type="text" name="caption"> 
-        Hashtag <input type="text" name="hashtag" class="typeahead" autocomplete="off" spellcheck="false"> <br><br>
-        <hr>
-        <input type="file" name="file">
-        <input type="submit" name="Upload">    
-    </form>
-</div>
+<form action="/upload" method="POST" enctype="multipart/form-data">
+
+    <div class="form-inline">
+        <div class="form-group mb-2">
+        <label for="uploadCap">Caption&nbsp;</label>
+        <input type="text" class="form-control" id="uploadCap" name="caption">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="uploadHash">Hashtag&nbsp;</label>
+        <input type="text" class="form-control typeahead" id="uploadHash" placeholder="#" name="hashtag" autocomplete="off" spellcheck="false">
+    </div>
+
+   <label class="btn btn-primary mb-2">
+        Browse <input type="file" class="form-control" name="file" id="InputUpload" style="display: none;">
+    </label> 
+    <span id="uploadSpan"></span> 
+
+    </div>
+    <input type="submit" name="Upload" id="uploadBtn" class="btn btn-primary"> 
+    
+</form>
+
 
 {% endblock content%}
+
+{% block javascript %}
+
+    <script src="/static/js/upload.js"></script>
+
+{% endblock %}
+
+
 

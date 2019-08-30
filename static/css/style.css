@@ -16,6 +16,7 @@ img {
     display: inline-block;
 }
 
+
 /* style for navbar */
 
 .nav-item {
@@ -26,7 +27,7 @@ img {
 
 /* style for register and login page */
 
-.login-clean {
+#loginBack {
   background:#f1f7fc;
   padding:80px 0;
 }
