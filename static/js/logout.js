@@ -7,9 +7,7 @@ $(document).ready(function() {
 
         evt.preventDefault();
 
-        setTimeout(function() {
-
-            window.location.replace("/logout")});
+        window.location.replace("/logout");
 
 
     });
