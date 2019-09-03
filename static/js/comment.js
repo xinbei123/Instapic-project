@@ -23,7 +23,6 @@ function showComment(evt) {
             });
 
         $('#comment-form input[name="comment"]').val('');
-        $('#commentMsg').html('Comments Saved!')
     }
 
 }
