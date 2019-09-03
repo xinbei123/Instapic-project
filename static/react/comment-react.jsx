@@ -41,9 +41,18 @@ class Comment extends React.Component {
         return (
             <div className="commentNodes">
 
-                <ul>
-                    {comments}
-                </ul>
+                <div class="titleBox">
+                    <label>Comments</label>
+                </div>
+                <div class="actionBox">
+                    <ul class="commentList" id="commentId">
+                        <li>
+                            <div class="commentText">
+                                { comments }
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             );

@@ -24,7 +24,7 @@ img {
 .detailBox {
     width:320px;
     border:1px solid #bbb;
-    margin:20px;
+    margin: 0 20px;
 }
 .titleBox {
     background-color:#fdfdfd;
@@ -49,7 +49,7 @@ img {
 .commentList {
     padding:0;
     list-style:none;
-    max-height:200px;
+    max-height:400px;
     overflow:auto;
 }
 .commentList li {
