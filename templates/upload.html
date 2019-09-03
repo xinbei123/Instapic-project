@@ -5,27 +5,20 @@
 <h2>Upload new photo</h2><br>
 
 <form action="/upload" method="POST" enctype="multipart/form-data">
-
-    <div class="form-inline">
-        <div class="form-group mb-2">
-        <label for="uploadCap">Caption&nbsp;</label>
-        <input type="text" class="form-control" id="uploadCap" name="caption">
-    </div>
-    <div class="form-group mx-sm-3 mb-2">
-        <label for="uploadHash">Hashtag&nbsp;</label>
-        <input type="text" class="form-control typeahead" id="uploadHash" placeholder="#" name="hashtag" autocomplete="off" spellcheck="false">
-    </div>
-
-   <label class="btn btn-primary mb-2">
-        Browse <input type="file" class="form-control" name="file" id="InputUpload" style="display: none;">
-    </label> 
-    <span id="uploadSpan"></span> 
-
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Caption" name="caption">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="#travel" name="hashtag">
+            </div> 
+        </div>
+        <label for="exampleFormControlFile1"></label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file">
     </div>
     <input type="submit" name="Upload" id="uploadBtn" class="btn btn-primary"> 
-    
 </form>
-
 
 {% endblock content%}
 
@@ -34,6 +27,7 @@
     <script src="/static/js/upload.js"></script>
 
 {% endblock %}
+
 
 
 
