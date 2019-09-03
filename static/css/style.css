@@ -16,11 +16,15 @@ img {
     display: inline-block;
 }
 
+#detailRow {
+    padding-top: 20px;
+}
+
 /* style for comment box */
 .detailBox {
     width:320px;
     border:1px solid #bbb;
-    margin:30px;
+    margin:20px;
 }
 .titleBox {
     background-color:#fdfdfd;
@@ -32,22 +36,16 @@ img {
   display:inline-block;
 }
 
-.commentBox {
-    padding:10px;
-    border-top:1px dotted #bbb;
-}
-.commentBox .form-group:first-child, .actionBox .form-group:first-child {
+.form-group:first-child, .actionBox .form-group:first-child {
     width:80%;
 }
-.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+.form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
     width:18%;
 }
 .actionBox .form-group * {
     width:100%;
 }
-.taskDescription {
-    margin-top:10px 0;
-}
+
 .commentList {
     padding:0;
     list-style:none;
@@ -71,14 +69,7 @@ img {
     width:100%;
     border-radius:50%;
 }
-.commentText p {
-    margin:0;
-}
-.sub-text {
-    color:#aaa;
-    font-family:verdana;
-    font-size:11px;
-}
+
 .actionBox {
     border-top:1px dotted #bbb;
     padding:10px;
