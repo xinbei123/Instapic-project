@@ -33,7 +33,12 @@ class Comment extends React.Component {
         const comments = result.map(item => (
 
                         <li key={item.comment_id}>
-                            {item.comment}
+                            <div class="commenterImage">
+                                <i class="fas fa-user-circle fa-lg"></i>
+                            </div>
+                            <div class="commentText">
+                                { item.comment }
+                            </div>
                         </li>
 
                         ))

@@ -3,11 +3,17 @@
 
 $(document).ready(function() {
 
-    $('.fa-sign-out-alt').on('click', function(evt) {
+    $('#logoutBtn').on('click', function(evt) {
 
         evt.preventDefault();
 
-        window.location.replace("/logout");
+        console.log(evt)
+
+        setTimeout(function() {
+            window.location.replace("/logout")
+        }, 3000)
+
+        
 
 
     });
