@@ -137,7 +137,7 @@ class Comment(db.Model):
         """Return a dictionary version of the comment."""
 
         result = {}
-
+        
         result['comment_id'] = self.comment_id
         result['comment'] = self.comment
         result['user_id'] = self.user_id

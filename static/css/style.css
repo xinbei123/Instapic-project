@@ -1,14 +1,12 @@
 
 #likeBtn, #dislikeBtn, #savedBtn, #hashtagBtn {
     cursor: pointer;
-    padding: 3px;
+    padding: 5px;
+    margin: auto;
 }
 
-span {
-    padding: 3px;
-}
-
-img {
+#caption {
+    margin: auto;
     padding: 5px;
 }
 

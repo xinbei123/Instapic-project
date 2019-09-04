@@ -166,16 +166,15 @@ def login_process():
 
     user = User.query.filter_by(username=username).one()
 
-    session['user_id'] = user.user_id
-
     if password != user.password:
-        flash('Invalid password, please try again!')
-        return redirect('login')
+        return redirect('/login')
+
+    session['user_id'] = user.user_id
 
     users = User.query.filter_by(username=username).one()
 
     return redirect(f"/users/{users.user_id}")
-    
+
 
 @app.route('/logout')
 def logout():
