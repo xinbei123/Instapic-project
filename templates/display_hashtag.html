@@ -3,11 +3,12 @@
 
 <h3>Hashtagged Photos</h3>
 
-<div>
+<div class="row">
     {% for photohashtag in photohashtags %}
-        <img src="{{ photohashtag.photos.photo_url }}">
+    <div class="col-4">
+        <img src="{{ photohashtag.photos.photo_url }}" class="img-fluid img-thumbnail" alt="Responsive image">
+    </div>
     {% endfor %}
-
 </div>
 
 
