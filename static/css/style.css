@@ -18,6 +18,10 @@
     padding-top: 20px;
 }
 
+#root {
+  border:1px solid #bbb;
+}
+
 /* style for comment box */
 .detailBox {
     width:320px;

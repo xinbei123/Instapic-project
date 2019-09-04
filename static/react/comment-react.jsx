@@ -41,13 +41,14 @@ class Comment extends React.Component {
         return (
             <div className="commentNodes">
 
-                <div class="titleBox">
+                <div className="titleBox">
                     <label>Comments</label>
                 </div>
-                <div class="actionBox">
-                    <ul class="commentList" id="commentId">
+                <div className="actionBox">
+                    <ul className="commentList" id="commentId">
                         <li>
-                            <div class="commentText">
+                            <div className="commentText">
+    
                                 { comments }
                             </div>
                         </li>
@@ -68,6 +69,7 @@ for (let commentNode of commentNodes) {
     ReactDOM.render(<Comment photoId={photo_id}/>, commentNode);
 }
 
+//<i class="fas fa-user-circle fa-lg"></i>
 
 
 
