@@ -57,3 +57,6 @@ Use a production WSGI server instead.
 ## Loading Homepage
 
 Open your browser and go to http://localhost:5000.
+<p align="center">
+  <img alt="Instapic login and logout" src="https://media.giphy.com/media/Q8fiD7e8KpXTiaCT1I/giphy.gif" width="980px">
+</p>
