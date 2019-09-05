@@ -22,8 +22,8 @@ To start using Instapic, you will first need to download Python:
 
 ## Installing
 
-<p>You will create a virtual environment and install them, using a <cite>requirements.txt</cite>
-file that has the names and exact versions of products you'd like to use:</p>
+<p>You will create a virtual environment and install them, using the requirements.txt
+file that has the names and exact versions of products in order to run the app:</p>
 <pre>
 $ <span>virtualenv</span> <span>env</span>
 New python executable in env/bin/python
