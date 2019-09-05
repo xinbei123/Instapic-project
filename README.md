@@ -33,6 +33,9 @@ $ <span>source env/bin/activate</span>
 Downloading/unpacking Flask (from -r requirements.txt (line 1))
 Downloading Flask-0.10.1.tar.gz (544kB): 544kB downloaded
 <span>...</span>
+Successfully installed Flask Flask-SQLAlchemy Jinja2 <span class="tan">...</span>
+Cleaning up...
+(env) $
 </pre>
 
 ## Running Server
