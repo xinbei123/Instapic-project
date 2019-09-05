@@ -10,7 +10,7 @@
 </div>
 <br>
   
-Instapic is a user-friendly social media web application. It combines everything you may need for social media posting, such as uploading photos with captions or hashtags, liking or disliking a photo, saving a photo, search photos by different hashtags, like a real Instagram.
+Instapic is a user-friendly social media web application. It combines everything you may need for social media posting, such as uploading photos with captions or hashtags, liking or disliking a photo, saving a photo, making comments to photos posted by other users, search photos by different hashtags, just like a real Instagram.
 
 ## Requirements
 
@@ -50,3 +50,7 @@ Use a production WSGI server instead.
  * Debugger PIN: 235-437-032
 <span>...</span>
 </pre>
+
+## Loading Homepage
+
+Open your browser and go to http://localhost:5000.
