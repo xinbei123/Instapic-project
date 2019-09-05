@@ -6,7 +6,7 @@
 
 <div align="center">
   <sub> Built with ❤︎ by
-  <a href="https://github.com/xinbeiliu/">Aileen Liu</a>
+    <a href="https://github.com/xinbeiliu/">Aileen Liu</a>
 </div>
 <br>
   
@@ -35,3 +35,18 @@ Downloading Flask-0.10.1.tar.gz (544kB): 544kB downloaded
 <span>...</span>
 </pre>
 
+## Running Server
+
+<pre>
+(env) $ <span>python3 server.py</span>
+Serving Flask app "server" (lazy loading)
+Environment: production
+WARNING: This is a development server. Do not use it in a production deployment.
+Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 235-437-032
+<span>...</span>
+</pre>
