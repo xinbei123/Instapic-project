@@ -31,6 +31,7 @@
     <!--bootstrap js-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <!--external js-->
     <script src="/static/js/hashtag.js"></script>
     <script src="/static/js/affix.js"></script>
     
@@ -88,13 +89,10 @@
         {% endfor %}
     </div>
     
-
     <div class="container">
-
         {% block content %}
         Put your body here.
         {% endblock %}
-
     </div>
 
     {% block react %}
@@ -102,9 +100,7 @@
     {% endblock %}
 
     {% block javascript %}
-
     <script src="/static/js/logout.js"></script>
-
     {% endblock %}
 
 </body>

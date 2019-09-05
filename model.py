@@ -54,7 +54,7 @@ class Photo(db.Model):
         """
 
     def to_dict(self):
-        """Return a dictionary version of the photo likes."""
+        """Return a dictionary version of the photo likes and dislikes."""
 
         result = {}
 
@@ -134,7 +134,7 @@ class Comment(db.Model):
          >"""
 
     def to_dict(self):
-        """Return a dictionary version of the comment."""
+        """Return a dictionary version of the comments."""
 
         result = {}
         
@@ -217,6 +217,7 @@ def example_data():
 
     db.session.add(maggie)
     db.session.commit()
+
 
 ##############################################################################
 # Helper functions

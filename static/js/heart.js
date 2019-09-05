@@ -1,6 +1,5 @@
 "use-strict";
 
-//Ajax post request for thumbsup/thumbsdown button
 $(document).ready(function() {
 
     $('.upvote').on('click', function(evt) {
@@ -20,8 +19,6 @@ $(document).ready(function() {
         const photoid = $(evt.target).data('photo-id')
 
         $.post(`/photos/${photoid}/dislike.json`, function(results) {
-
-            console.log(results)
 
             $(evt.target).html(results.num_dislike)
         })

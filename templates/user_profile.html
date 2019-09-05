@@ -2,7 +2,6 @@
 {% block content %}
 
 <h3>My Photos</h3>
-
 <div class="row">
     {% for photo in photos %}
         <div class="col-4">
@@ -12,7 +11,6 @@
 </div>
 
 <h3>Saved Photos</h3>
-
 <div class="row">
    {% for userphoto in userphoto_lst %}
     <div class="col-4">
@@ -20,6 +18,4 @@
     </div>    
     {% endfor %} 
 </div>
-
-
 {% endblock %}

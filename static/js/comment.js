@@ -1,6 +1,5 @@
 "use-strict";
 
-
 function showComment(evt) {
 
     evt.preventDefault();
@@ -9,7 +8,6 @@ function showComment(evt) {
         comment: $('#comment-form input[name="comment"]').val(),
         photoId: $('#comment-form input[name="photoId"]').val()
     }
-
 
     if (formValues.comment) {
 

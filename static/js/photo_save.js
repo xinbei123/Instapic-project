@@ -1,6 +1,5 @@
 "use-strict";
 
-
 $(document).ready(function() {
 
     $('.saveFav').on('click', function (evt) {

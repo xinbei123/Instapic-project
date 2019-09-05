@@ -12,14 +12,12 @@ class FlaskTestsBasic(TestCase):
         self.client = app.test_client()
         app.config['TESTING'] = True
 
-
     def test_index(self):
         """Test homepage page (also the login page)"""
 
         result = self.client.get('/login')
         self.assertEqual(result.status_code, 200)
         self.assertIn(b'<h1>Login</h1>', result.data)
-
 
     def test_register(self):
         """Test register page"""
@@ -97,7 +95,6 @@ class FlaskTestsLoggedOut(TestCase):
         result = self.client.get("/upload", follow_redirects=True)
         self.assertNotIn(b"Welcome to Instapic", result.data)
         self.assertIn(b"Login", result.data)
-
 
 
 ################################################################################

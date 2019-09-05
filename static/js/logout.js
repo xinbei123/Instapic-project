@@ -1,6 +1,5 @@
 "use-strict";
 
-
 $(document).ready(function() {
 
     $('#logoutBtn').on('click', function(evt) {
@@ -12,9 +11,6 @@ $(document).ready(function() {
         setTimeout(function() {
             window.location.replace("/logout")
         }, 3000)
-
-        
-
 
     });
 

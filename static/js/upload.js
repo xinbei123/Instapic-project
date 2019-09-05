@@ -1,6 +1,5 @@
 "use-strict";
 
-
 $(document).on('change', ':file', function() {
     
     var input = $(this),

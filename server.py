@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, flash, url_for, send_from_directory, jsonify
+from flask import Flask, render_template, request, redirect, session, flash, send_from_directory, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from jinja2 import StrictUndefined
 from model import connect_to_db, db, User, Photo, Comment, Hashtag, Photohashtag, Userphoto
@@ -41,7 +41,7 @@ def homepage():
 
 @app.route('/photos/<int:photo_id>/like.json', methods=['POST'])
 def photo_like(photo_id):
-    """Show num of likes for a photo"""
+    """json version of num of photo likes"""
 
     photo_obj = Photo.query.filter_by(photo_id=photo_id).one()
 
@@ -54,7 +54,7 @@ def photo_like(photo_id):
 
 @app.route('/photos/<int:photo_id>/dislike.json', methods=['POST'])
 def photo_dislike(photo_id):
-    """Show num of dislikes for a photo"""
+    """json version of num of photo dislikes"""
 
     photo_obj = Photo.query.filter_by(photo_id=photo_id).one()
 
@@ -67,6 +67,7 @@ def photo_dislike(photo_id):
 
 @app.route('/photos/<int:photo_id>/save.json', methods=['POST'])
 def save_photo(photo_id):
+    """json version of saved photos"""
 
     user_id = session['user_id']
 
@@ -111,6 +112,7 @@ def search_hashtag():
 
 @app.route('/hashtag.json')
 def hashtag_info():
+    """json version of list of hashtags"""
 
     hashtags = Hashtag.query.all()
 
@@ -208,6 +210,7 @@ def photo_detail(photo_id):
 
     return render_template('photo_detail.html', photo=photo,
                             comment_lst=comment_lst)
+
 
 # react portion
 @app.route('/photos/comments.json')
@@ -311,6 +314,7 @@ def upload_file():
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
+    """Show successful uploaded image"""
 
     return send_from_directory(UPLOAD_FOLDER,filename)
 

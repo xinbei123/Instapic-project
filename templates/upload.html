@@ -3,7 +3,6 @@
 {% block content %}
 
 <h2>Upload new photo</h2><br>
-
 <form action="/upload" method="POST" enctype="multipart/form-data">
     <div class="form-group">
         <div class="form-row">
@@ -19,13 +18,10 @@
     </div>
     <input type="submit" name="Upload" id="uploadBtn" class="btn btn-primary" value="Upload"> 
 </form>
-
 {% endblock content%}
 
 {% block javascript %}
-
-    <script src="/static/js/upload.js"></script>
-
+<script src="/static/js/upload.js"></script>
 {% endblock %}
 
 
