@@ -58,5 +58,5 @@ Use a production WSGI server instead.
 
 Open your browser and go to http://localhost:5000.
 <p align="center">
-  <img alt="Instapic login and logout" src="https://gfycat.com/genuinesimilarasiandamselfly.gif" width="980px">
+  <img src="https://media.giphy.com/media/Q8JDkSdFunPL7NLsCM/giphy.gif" width="980px">
 </p>
