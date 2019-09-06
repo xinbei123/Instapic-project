@@ -1,6 +1,6 @@
 <h1 align="center">
 <a href="https://github.com/xinbeiliu/Instapic-project">
-  <img alt="Instapic" src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/Screen%20Shot%202019-09-05%20at%205.19.04%20PM.png" width="980px"></a>
+  <img alt="Instapic" src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/Screen%20Shot%202019-09-05%20at%205.19.04%20PM.png" width="980px"></a><br>
   <br> 👍🏻👎🏻 Instapic - Clone of Instagram <br>
 </h1>
 
