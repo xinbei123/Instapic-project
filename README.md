@@ -1,6 +1,6 @@
 <h1 align="center">
 <a href="https://github.com/xinbeiliu/Instapic-project">
-  <img alt="Instapic" src="https://www.brandchannel.com/wp-content/uploads/2016/05/instagram-new-logo-may-2016.jpg" width="400"></a>
+  <img alt="Instapic" src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/Screen%20Shot%202019-09-05%20at%205.19.04%20PM.png" width="980px"></a>
   <br> 👍🏻👎🏻 Instapic - Clone of Instagram <br>
 </h1>
 
@@ -41,6 +41,3 @@ python3 server.py
 
 Open your browser and go to http://localhost:5000.
 
-<p align="center">
-  <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/Screen%20Shot%202019-09-05%20at%205.19.04%20PM.png" width="980px">
-</p>
