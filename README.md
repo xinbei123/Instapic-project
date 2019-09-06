@@ -22,37 +22,20 @@ To start using Instapic, you will first need to download Python:
 
 ## Installing
 
-<p>You will create a virtual environment and install them, using the requirements.txt
-file that has the names and exact versions of products in order to run the app:</p>
-<pre>
-$ <span>virtualenv</span> <span>env</span>
-New python executable in env/bin/python
-Installing setuptools, pip...done.
-$ <span>source env/bin/activate</span>
-(env) $ <span>pip3</span> <span>install -r requirements.txt</span>
-Downloading/unpacking Flask (from -r requirements.txt (line 1))
-Downloading Flask-0.10.1.tar.gz (544kB): 544kB downloaded
-<span>...</span>
-Successfully installed Flask Flask-SQLAlchemy Jinja2 <span class="tan">...</span>
-Cleaning up...
-(env) $
-</pre>
+You will create a virtual environment and install them, using the requirements.txt
+file that has the names and exact versions of products in order to run the app:
+
+```shell
+virtualenv env
+source env/bin/activate
+pip3 install -r requirements.txt
+```
 
 ## Running Server
 
-<pre>
-(env) $ <span>python3 server.py</span>
-Serving Flask app "server" (lazy loading)
-Environment: production
-WARNING: This is a development server. Do not use it in a production deployment.
-Use a production WSGI server instead.
- * Debug mode: on
- * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 235-437-032
-<span>...</span>
-</pre>
+```shell
+python3 server.py
+```
 
 ## Loading Homepage
 
