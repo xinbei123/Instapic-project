@@ -39,5 +39,5 @@ python3 server.py
 
 ## Loading Homepage
 
-Open your browser and go to http://localhost:5000.
+<p>Open your browser and go to http://localhost:5000.</p>
 
