@@ -73,5 +73,6 @@ Open your browser and go to http://localhost:5000
 - <h4>Autocomplete hashtag search</h4>
 <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/autocomplete.png">
 
-
+- <h4>Like or dislike or save a photo</h4>
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/like_unlike.png">
 
