@@ -61,7 +61,7 @@ Open your browser and go to http://localhost:5000.
 ## Register/Login Page
 <p align="center">
   <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/Screen%20Shot%202019-09-05%20at%205.18.29%20PM.png" width="980px">
-  <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/Screen%20Shot%202019-09-05%20at%205.18.12%20PM.png" width="980px">
+  <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/Screen%20Shot%202019-09-05%20at%205.18.01%20PM.png" width="980px">
   
 ## Homepage
 <p align="center">
