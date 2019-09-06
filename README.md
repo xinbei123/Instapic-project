@@ -21,7 +21,7 @@ Created by:
 <img alt="html" src="https://icongr.am/devicon/html5-original.svg?size=70">
 <img alt="css" src="https://icongr.am/devicon/css3-original.svg?size=70">
 <img alt="bootstrap" src="https://icongr.am/devicon/bootstrap-plain.svg?size=70">
-<img alt="github" src="https://icongr.am/simple/github.svg?size=70">
+<img alt="github" src="https://icongr.am/devicon/jquery-original.svg?size=70">
 <br>
 
 ## Requirements
@@ -56,7 +56,19 @@ python3 server.py
 ## Features
 
 <h4>Register</h4>
+https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/register.png
 
+<h4>Login</h4>
+https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/logged_in_process.png
+
+<h4>Upload new photo</h4>
+https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/upload.png
+
+<h4>Make Comment</h4>
+https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/comment.png
+
+<h4>User profile</h4>
+https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/user_profile.png
 
 
 
