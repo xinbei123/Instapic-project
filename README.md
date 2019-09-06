@@ -56,7 +56,7 @@ python3 server.py
 ## Features
 
 <h4>Register</h4>
-<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/register.png">
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/register2.png">
 
 <h4>Login</h4>
 <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/logged_in_process.png">
