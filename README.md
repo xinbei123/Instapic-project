@@ -11,7 +11,7 @@
 <br>
   
 Instapic is a user-friendly social media web application. It combines everything you may need for social media posting, such as uploading photos with captions or hashtags, liking or disliking a photo, saving a photo, making comments to photos posted by other users, search photos by different hashtags, just like a real Instagram.
-
+<br>
 Created by:
 <img alt="python" src="https://icongr.am/devicon/python-original.svg?size=70">
 <img alt="flask" src="https://icongr.am/simple/flask.svg?size=70">
