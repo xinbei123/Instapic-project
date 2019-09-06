@@ -56,19 +56,19 @@ python3 server.py
 ## Features
 
 <h4>Register</h4>
-https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/register.png
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/register.png">
 
 <h4>Login</h4>
-https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/logged_in_process.png
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/logged_in_process.png">
 
 <h4>Upload new photo</h4>
-https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/upload.png
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/upload.png">
 
 <h4>Make Comment</h4>
-https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/comment.png
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/comment.png">
 
 <h4>User profile</h4>
-https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/user_profile.png
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/user_profile.png">
 
 
 
