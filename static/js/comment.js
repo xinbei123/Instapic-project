@@ -17,7 +17,7 @@ function showComment(evt) {
                 
                 const latestComment = comments[comments.length - 1];
             
-                $('#commentId').prepend(`<li>${latestComment.comment}</li>`);
+                $('#commentId').prepend(`<li><i class="fas fa-user-circle fa-lg"></i>${latestComment.comment}</li>`);
             });
 
         $('#comment-form input[name="comment"]').val('');

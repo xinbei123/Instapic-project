@@ -19,6 +19,15 @@
 
 #root {
   border:1px solid #bbb;
+  height: 436px;
+}
+
+.card {
+  border: 0px;
+}
+
+.card-body {
+  padding: 0.8rem;
 }
 
 /* style for comment box */
@@ -50,7 +59,7 @@
 .commentList {
     padding:0;
     list-style:none;
-    max-height:400px;
+    max-height:350px;
     overflow:auto;
 }
 .commentList li {

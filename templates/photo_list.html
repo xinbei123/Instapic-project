@@ -2,25 +2,31 @@
 {% block content %}
 
     {% for photo in photos %}
-    <div class="row">
+    <div class="row photoSection">
         <div class="col-8">
-            <a href="/photos/{{ photo.photo_id }}">
-            <img id = "photoList" src="{{ photo.photo_url }}" class="img-fluid img-thumbnail" alt="Responsive image"></a>
+            <div class="card">
+                <a href="/photos/{{ photo.photo_id }}">
+                <img id = "photoList" src="{{ photo.photo_url }}" class="img-fluid img-thumbnail" alt="Responsive image"></a>
+                <div class="card-body">
+                    <div class="card-text">
+                        <div id="caption" value="{{ photo.caption }}">
+                            {{ photo.caption }}
+                        </div>
+                         <span value="{{ photo.photo_id }}">
+                            <i id="likeBtn" class="fas fa-thumbs-up upvote" data-photo-id="{{ photo.photo_id }}">{{ photo.num_like }}</i>
+                        </span> 
+                        <span value="{{ photo.photo_id }}">
+                            <i id="dislikeBtn" class="far fa-thumbs-down downvote" data-photo-id="{{ photo.photo_id }}">{{ photo.num_dislike }}</i>
+                        </span>   
+                        <span id="savedBtn" value="{{ photo.photo_id}}">
+                            <i class="fa fa-save saveFav" data-photo-id="{{ photo.photo_id }}"></i> 
+                        </span> 
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="root" class="commentNodes col-4" data-photo-id="{{ photo.photo_id }}"></div>
     </div>
-    <div id="caption" value="{{ photo.caption }}">
-        {{ photo.caption }}
-    </div>
-    <span value="{{ photo.photo_id }}">
-        <i id="likeBtn" class="fas fa-thumbs-up upvote" data-photo-id="{{ photo.photo_id }}">{{ photo.num_like }}</i>
-    </span>   
-    <span value="{{ photo.photo_id }}">
-        <i id="dislikeBtn" class="far fa-thumbs-down downvote" data-photo-id="{{ photo.photo_id }}">{{ photo.num_dislike }}</i>
-    </span>   
-    <span id="savedBtn" value="{{ photo.photo_id}}">
-        <i class="fa fa-save saveFav" data-photo-id="{{ photo.photo_id }}"></i> 
-    </span>
     {% endfor %}
 {% endblock content%}
 
@@ -38,5 +44,13 @@
 <script src="/static/js/photo_save.js"></script>
 {% endblock %}
 
-
+<!-- <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+ -->
 

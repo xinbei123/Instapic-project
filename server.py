@@ -3,6 +3,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from jinja2 import StrictUndefined
 from model import connect_to_db, db, User, Photo, Comment, Hashtag, Photohashtag, Userphoto
 from werkzeug.utils import secure_filename
+from sqlalchemy.orm.exc import NoResultFound 
 from sqlalchemy import desc
 import os
 
@@ -166,7 +167,13 @@ def login_process():
     username = request.form['username']
     password = request.form['password']
 
-    user = User.query.filter_by(username=username).one()
+    try:
+        user = User.query.filter_by(username=username).one()
+
+    except NoResultFound:
+
+        flash("Invalid user or password!")
+        return redirect('/login')
 
     if password != user.password:
         return redirect('/login')
