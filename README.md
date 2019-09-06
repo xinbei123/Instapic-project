@@ -1,6 +1,6 @@
 <h1 align="center">
 <a href="https://github.com/xinbeiliu/Instapic-project">
-  <img alt="Instapic" src="https://www.brandchannel.com/wp-content/uploads/2016/05/instagram-new-logo-may-2016.jpg" width="400"></a>
+  <img alt="Instapic" src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/Screen%20Shot%202019-09-05%20at%205.19.04%20PM.png" width="980px"></a><br>
   <br> 👍🏻👎🏻 Instapic - Clone of Instagram <br>
 </h1>
 
@@ -11,6 +11,18 @@
 <br>
   
 Instapic is a user-friendly social media web application. It combines everything you may need for social media posting, such as uploading photos with captions or hashtags, liking or disliking a photo, saving a photo, making comments to photos posted by other users, search photos by different hashtags, just like a real Instagram.
+<br><br>
+
+Created by:
+<img alt="python" src="https://icongr.am/devicon/python-original.svg?size=70">
+<img alt="flask" src="https://icongr.am/simple/flask.svg?size=70">
+<img src="https://icongr.am/devicon/postgresql-original.svg?size=70"> 
+<img src="https://icongr.am/devicon/javascript-original.svg?size=70">
+<img src="https://icongr.am/devicon/html5-original.svg?size=70">
+<img src="https://icongr.am/devicon/css3-original.svg?size=70">
+<img src="https://icongr.am/devicon/bootstrap-plain.svg?size=70">
+<img src="https://icongr.am/simple/github.svg?size=70">
+<br>
 
 ## Requirements
 
@@ -22,41 +34,23 @@ To start using Instapic, you will first need to download Python:
 
 ## Installing
 
-<p>You will create a virtual environment and install them, using the requirements.txt
-file that has the names and exact versions of products in order to run the app:</p>
-<pre>
-$ <span>virtualenv</span> <span>env</span>
-New python executable in env/bin/python
-Installing setuptools, pip...done.
-$ <span>source env/bin/activate</span>
-(env) $ <span>pip3</span> <span>install -r requirements.txt</span>
-Downloading/unpacking Flask (from -r requirements.txt (line 1))
-Downloading Flask-0.10.1.tar.gz (544kB): 544kB downloaded
-<span>...</span>
-Successfully installed Flask Flask-SQLAlchemy Jinja2 <span class="tan">...</span>
-Cleaning up...
-(env) $
-</pre>
+You will create a virtual environment and install them, using the requirements.txt
+file that has the names and exact versions of products in order to run the app:
+
+```shell
+virtualenv env
+source env/bin/activate
+pip3 install -r requirements.txt
+```
 
 ## Running Server
 
-<pre>
-(env) $ <span>python3 server.py</span>
-Serving Flask app "server" (lazy loading)
-Environment: production
-WARNING: This is a development server. Do not use it in a production deployment.
-Use a production WSGI server instead.
- * Debug mode: on
- * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 235-437-032
-<span>...</span>
-</pre>
+```shell
+python3 server.py
+```
 
 ## Loading Homepage
 
-Open your browser and go to http://localhost:5000.
-<p align="center">
-  <img src="https://media.giphy.com/media/Q8JDkSdFunPL7NLsCM/giphy.gif" width="980px">
-</p>
+<p>Open your browser and go to http://localhost:5000.</p>
+
+
