@@ -1,6 +1,6 @@
 <h1 align="center">
 <a href="https://github.com/xinbeiliu/Instapic-project">
-  <img alt="Instapic" src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/Screen%20Shot%202019-09-05%20at%205.19.04%20PM.png" width="980px"></a><br>
+  <img alt="Instapic" src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/homepage.png" width="980px"></a><br>
   <br> 👍🏻👎🏻 Instapic - Clone of Instagram <br>
 </h1>
 
@@ -16,12 +16,12 @@ Instapic is a user-friendly social media web application. It combines everything
 Created by:
 <img alt="python" src="https://icongr.am/devicon/python-original.svg?size=70">
 <img alt="flask" src="https://icongr.am/simple/flask.svg?size=70">
-<img src="https://icongr.am/devicon/postgresql-original.svg?size=70"> 
-<img src="https://icongr.am/devicon/javascript-original.svg?size=70">
-<img src="https://icongr.am/devicon/html5-original.svg?size=70">
-<img src="https://icongr.am/devicon/css3-original.svg?size=70">
-<img src="https://icongr.am/devicon/bootstrap-plain.svg?size=70">
-<img src="https://icongr.am/simple/github.svg?size=70">
+<img alt="postgresql" src="https://icongr.am/devicon/postgresql-original.svg?size=70"> 
+<img alt="js" src="https://icongr.am/devicon/javascript-original.svg?size=70">
+<img alt="html" src="https://icongr.am/devicon/html5-original.svg?size=70">
+<img alt="css" src="https://icongr.am/devicon/css3-original.svg?size=70">
+<img alt="bootstrap" src="https://icongr.am/devicon/bootstrap-plain.svg?size=70">
+<img alt="github" src="https://icongr.am/devicon/jquery-original.svg?size=70">
 <br>
 
 ## Requirements
@@ -52,5 +52,26 @@ python3 server.py
 ## Loading Homepage
 
 <p>Open your browser and go to http://localhost:5000.</p>
+
+## Features
+
+<h4>Register</h4>
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/register.png">
+
+<h4>Login</h4>
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/logged_in_process.png">
+
+<h4>Upload new photo</h4>
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/upload.png" width="980px">
+
+<h4>Make Comment</h4>
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/comment.png" width="980px">
+
+<h4>User profile</h4>
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/user_profile.png" width="980px">
+
+<h4>Autocomplete hashtag search</h4>
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/autocomplete.png">
+
 
 
