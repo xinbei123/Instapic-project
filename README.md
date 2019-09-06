@@ -62,13 +62,16 @@ python3 server.py
 <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/logged_in_process.png">
 
 <h4>Upload new photo</h4>
-<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/upload.png">
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/upload.png" width="980px">
 
 <h4>Make Comment</h4>
-<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/comment.png">
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/comment.png" width="980px">
 
 <h4>User profile</h4>
-<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/user_profile.png">
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/user_profile.png" width="980px">
+
+<h4>Autocomplete hashtag search</h4>
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/autocomplete.png">
 
 
 
