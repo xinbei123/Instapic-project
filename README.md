@@ -62,7 +62,7 @@ Open your browser and go to http://localhost:5000
 <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/upload.png" width="980px">
 
 - <h4>Make Comment</h4>
-<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/comment.png" width="980px">
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/comment.gif" width="980px">
 
 - <h4>User profile</h4>
 <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/user_profile.png" width="980px">
