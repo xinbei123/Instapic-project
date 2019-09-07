@@ -64,12 +64,12 @@ Open your browser and go to http://localhost:5000
 - <h4>Make Comment</h4>
 <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/comment.gif" width="980px">
 
-- <h4>User profile</h4>
-<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/user_profile.png" width="980px">
+- <h4>Saving a photo to user profile</h4>
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/saving.gif" width="980px">
 
 - <h4>Autocomplete hashtag search</h4>
 <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/autocomplete.gif">
 
-- <h4>Like or dislike or save a photo</h4>
+- <h4>Like or dislike</h4>
 <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/like.gif">
 
