@@ -53,7 +53,6 @@ class Comment extends React.Component {
                     <ul className="commentList" id="commentId">
                         <li>
                             <div className="commentText">
-    
                                 { comments }
                             </div>
                         </li>
@@ -74,7 +73,7 @@ for (let commentNode of commentNodes) {
     ReactDOM.render(<Comment photoId={photo_id}/>, commentNode);
 }
 
-//<i class="fas fa-user-circle fa-lg"></i>
+
 
 
 

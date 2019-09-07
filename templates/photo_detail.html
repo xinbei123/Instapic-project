@@ -2,10 +2,23 @@
 {% block content %}
 
 <div class="row" id="detailRow">
-    <div class="col-8">
-        <img src="{{ photo.photo_url }}" class="img-fluid img-thumbnail" alt="Responsive image">
+    <div class="row col-8">
+        <div class="card">
+            <img src="{{ photo.photo_url }}" class="img-fluid img-thumbnail" alt="Responsive image">
+            <div class="card-text">
+                <div>
+                    {% for hashtag in photo.hashtags %}
+                    <span id="hashtagBtn">
+                        <a href="/photos/{{ hashtag.hashtag_id }}/hashtag">
+                            <i class="fas fa-hashtag hashBtn" data-photo-id="{{ photo.photo_id }}" data-hashtag-id="{{ hashtag.hashtag_id }}">{{ hashtag.hashtag }}</i>
+                        </a>   
+                    </span>       
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>  
-    <div class="detailBox col-4">
+    <div class="detailBox row col-4">
         <div class="titleBox">
           <label>Comments</label>
         </div>
@@ -37,17 +50,6 @@
         </div>
     </div>
 </div>
-
-<div>
-    {% for hashtag in photo.hashtags %}
-    <span id="hashtagBtn">
-        <a href="/photos/{{ hashtag.hashtag_id }}/hashtag">
-            <i class="fas fa-hashtag hashBtn" data-photo-id="{{ photo.photo_id }}" data-hashtag-id="{{ hashtag.hashtag_id }}">{{ hashtag.hashtag }}</i>
-        </a>   
-    </span>       
-    {% endfor %}
-</div>
-
 
 {% endblock content%}
 

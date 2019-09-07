@@ -331,7 +331,7 @@ def uploaded_file(filename):
 
 if __name__ == "__main__":
 
-    app.debug = True
+    app.debug = False
     app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
     app.jinja_env.auto_reload = app.debug
 
