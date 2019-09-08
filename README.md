@@ -16,13 +16,20 @@ Instapic is a user-friendly social media web application. It combines everything
 Created by:
 <a href="https://www.python.org/download/releases/3.0/">
   <img alt="python" src="https://icongr.am/devicon/python-original.svg?size=70"></a>
-<img alt="flask" src="https://icongr.am/simple/flask.svg?size=70">
-<img alt="postgresql" src="https://icongr.am/devicon/postgresql-original.svg?size=70"> 
-<img alt="js" src="https://icongr.am/devicon/javascript-original.svg?size=70">
-<img alt="html" src="https://icongr.am/devicon/html5-original.svg?size=70">
-<img alt="css" src="https://icongr.am/devicon/css3-original.svg?size=70">
-<img alt="bootstrap" src="https://icongr.am/devicon/bootstrap-plain.svg?size=70">
-<img alt="github" src="https://icongr.am/devicon/jquery-original.svg?size=70">
+<a href="https://flask.palletsprojects.com/en/1.1.x/">
+  <img alt="flask" src="https://icongr.am/simple/flask.svg?size=70"></a>
+<a href="https://www.postgresql.org/">
+  <img alt="postgresql" src="https://icongr.am/devicon/postgresql-original.svg?size=70"></a> 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+  <img alt="js" src="https://icongr.am/devicon/javascript-original.svg?size=70"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+  <img alt="html" src="https://icongr.am/devicon/html5-original.svg?size=70"></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS">
+  <img alt="css" src="https://icongr.am/devicon/css3-original.svg?size=70"></a>
+<a href="https://getbootstrap.com/">
+  <img alt="bootstrap" src="https://icongr.am/devicon/bootstrap-plain.svg?size=70"></a>
+<a href="https://jquery.com/">
+  <img alt="jquery" src="https://icongr.am/devicon/jquery-original.svg?size=70"></a>
 <br>
 
 ## Requirements
