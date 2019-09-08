@@ -14,7 +14,8 @@ Instapic is a user-friendly social media web application. It combines everything
 <br><br>
 
 Created by:
-<img alt="python" src="https://icongr.am/devicon/python-original.svg?size=70">
+<a href="https://www.python.org/download/releases/3.0/">
+  <img alt="python" src="https://icongr.am/devicon/python-original.svg?size=70"></a>
 <img alt="flask" src="https://icongr.am/simple/flask.svg?size=70">
 <img alt="postgresql" src="https://icongr.am/devicon/postgresql-original.svg?size=70"> 
 <img alt="js" src="https://icongr.am/devicon/javascript-original.svg?size=70">
