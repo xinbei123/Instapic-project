@@ -56,10 +56,10 @@ Open your browser and go to http://localhost:5000
 ## Features
 
 - <h4>Register/Login</h4>
-<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/register_login.gif">
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/register_login.gif width="980px">
 
 - <h4>Upload new photo</h4>
-<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/upload.png" width="980px">
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/upload.gif" width="980px">
 
 - <h4>Make Comment</h4>
 <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/comment.gif" width="980px">
@@ -68,8 +68,8 @@ Open your browser and go to http://localhost:5000
 <img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/saving.gif" width="980px">
 
 - <h4>Autocomplete hashtag search</h4>
-<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/autocomplete.gif">
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/autocomplete.gif width="980px">
 
 - <h4>Like or dislike</h4>
-<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/like.gif">
+<img src="https://github.com/xinbeiliu/Instapic-project/blob/master/static/images/like.gif width="980px">
 
