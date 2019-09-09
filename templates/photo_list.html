@@ -12,15 +12,23 @@
                         <div id="caption" value="{{ photo.caption }}">
                             {{ photo.caption }}
                         </div>
-                         <span value="{{ photo.photo_id }}">
-                            <i id="likeBtn" class="fas fa-thumbs-up upvote" data-photo-id="{{ photo.photo_id }}">{{ photo.num_like }}</i>
-                        </span> 
-                        <span value="{{ photo.photo_id }}">
-                            <i id="dislikeBtn" class="far fa-thumbs-down downvote" data-photo-id="{{ photo.photo_id }}">{{ photo.num_dislike }}</i>
-                        </span>   
-                        <span id="savedBtn" value="{{ photo.photo_id}}">
-                            <i class="fa fa-save saveFav" data-photo-id="{{ photo.photo_id }}"></i> 
-                        </span> 
+                        <section class="rating-area align-left">
+                            <div class="thumbs-up-circle align-center transition-fast">
+                                <span value="{{ photo.photo_id }}" class="thumbs-up transition-fast">
+                                    <i id="likeBtn" class="fas fa-thumbs-up upvote" data-photo-id="{{ photo.photo_id }}">{{ photo.num_like }}</i>
+                                </span>  
+                            </div>
+                            <div class="thumbs-up-circle align-center transition-fast">
+                                <span value="{{ photo.photo_id }}" class="thumbs-down transition-fast">
+                                    <i id="dislikeBtn" class="far fa-thumbs-down downvote" data-photo-id="{{ photo.photo_id }}">{{ photo.num_dislike }}</i>
+                                </span>
+                            </div>
+                            <div class="thumbs-up-circle align-center transition-fast">   
+                                <span id="savedBtn" value="{{ photo.photo_id}}" class="save transition-fast">
+                                    <i class="fa fa-save saveFav" data-photo-id="{{ photo.photo_id }}"></i> 
+                                </span> 
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>

@@ -142,7 +142,7 @@ def register_process():
     db.session.add(new_user)
     db.session.commit()
 
-    flash('You are successfully registered!')
+    flash('Registered! Login now!')
     
     return redirect('/login')
 
@@ -172,10 +172,11 @@ def login_process():
 
     except NoResultFound:
 
-        flash("Invalid user or password!")
+        flash("Invalid username or password!")
         return redirect('/login')
 
     if password != user.password:
+        flash("Invalid username or password!")
         return redirect('/login')
 
     session['user_id'] = user.user_id

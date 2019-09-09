@@ -29,6 +29,12 @@
             <a href="/register" class="forgot">Don't have an account yet? Join Now!</a>
         </form>
     </div>
+
+    <div class="container" id="flashLogin">
+        {% for flash in get_flashed_messages() %}
+        {{ flash }}
+        {% endfor %}
+    </div>
 </body>
 </html>
 

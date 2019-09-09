@@ -10,7 +10,7 @@ $(document).ready(function() {
 
         setTimeout(function() {
             window.location.replace("/logout")
-        }, 3000)
+        }, 2000)
 
     });
 

@@ -1,9 +1,70 @@
-#likeBtn, #dislikeBtn, #savedBtn, #hashtagBtn {
-    cursor: pointer;
-    padding: 5px;
-    margin: auto;
+
+/* style for like/dislike/save btn*/
+
+.transition-fast {
+  transition: 0.2s ease-out;
 }
 
+.thumbs-up-circle {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  cursor:pointer;
+  margin-bottom:5px;
+  margin-top:5px;
+}
+
+.thumbs-up {
+  color: #000000;
+  font-size:20px;
+  transform:rotate(0) translate(0);
+}
+
+.thumbs-up-circle:hover .thumbs-up {
+  color:#1976D2;
+  transform:rotate(-5deg) translate(0px, -1px);
+}
+
+.thumbs-up-circle:active .thumbs-up {
+  color:#065bae;
+  transition:0.1s;
+  transform:rotate(-10deg) translate(0px, -2px);
+}
+
+.thumbs-down {
+  color:#9E9E9E;
+  font-size:20px;
+  transform:rotate(0) translate(0);
+}
+
+.thumbs-up-circle:hover .thumbs-down {
+  color:#565656;
+  transform:rotate(5deg) translate(0px, 1px);
+}
+
+.thumbs-up-circle:active .thumbs-down {
+  color:#424242;
+  transition:0.1s;
+  transform:rotate(10deg) translate(0px, 2px);
+}
+
+.save {
+  color: #000000;
+  font-size: 20px;
+}
+
+.align-center {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.align-left {
+  display: flex;
+  align-items: center;
+}
+
+/* style for others*/
 #caption {
     margin: auto;
     padding: 5px;
@@ -30,7 +91,12 @@
   padding: 0.8rem;
 }
 
+#flashLogin {
+  max-width: 250px;
+}
+
 /* style for comment box */
+
 .detailBox {
     width:320px;
     border:1px solid #bbb;
@@ -94,7 +160,6 @@
   left: 0;
   z-index: 1030;
 }
-
 
 /* style for navbar */
 
