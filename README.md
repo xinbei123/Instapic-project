@@ -6,7 +6,7 @@
 
 <div align="center">
   <sub> Built with ❤︎ by
-    <a href="https://github.com/xinbeiliu/">Aileen Liu</a>
+    <a href="https://www.linkedin.com/in/xinbeiliu/">Aileen Liu</a>
 </div>
 <br>
   
