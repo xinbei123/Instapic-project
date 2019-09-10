@@ -32,7 +32,10 @@ Created by:
   <img alt="jquery" src="https://icongr.am/devicon/jquery-original.svg?size=70"></a>
 <a href="https://reactjs.org/">
   <img alt="react" src="https://icongr.am/devicon/react-original.svg?size=70"></a>
+<a href="https://babeljs.io/">
+  <img alt="babel" src="https://icongr.am/devicon/babel-original.svg?size=70"></a>
 <br>
+
 
 ## Requirements
 
