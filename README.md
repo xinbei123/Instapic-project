@@ -30,6 +30,8 @@ Created by:
   <img alt="bootstrap" src="https://icongr.am/devicon/bootstrap-plain.svg?size=70"></a>
 <a href="https://jquery.com/">
   <img alt="jquery" src="https://icongr.am/devicon/jquery-original.svg?size=70"></a>
+<a href="https://reactjs.org/">
+  <img alt="react" src="https://icongr.am/devicon/react-original.svg?size=70"></a>
 <br>
 
 ## Requirements
