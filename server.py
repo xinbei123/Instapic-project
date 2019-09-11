@@ -101,7 +101,7 @@ def search_hashtag():
     if not db_hashtag:
 
         flash('There is no matching photos!')
-        return redirect('/hashtag')
+        return redirect('/')
 
     else:
 
