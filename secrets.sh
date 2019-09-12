@@ -1,1 +1,0 @@
-export SECRET_KEY='ABCdefGHL1234***$abc$'
